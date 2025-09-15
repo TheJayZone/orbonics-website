@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbonics® - Gaming Experiences</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background: linear-gradient(135deg, #4a148c 0%, #7b1fa2 50%, #8e24aa 100%);
+            color: white;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .game-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ffb74d;
+        }
+
+        .main-title {
+            font-family: 'Merriweather', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: #ffb74d;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #e1bee7;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .features-list {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            color: #ce93d8;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature::before {
+            content: "●";
+            color: #4caf50;
+            margin-right: 8px;
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            gap: 2px;
+        }
+
+        .nav-tab {
+            background: rgba(255, 183, 77, 0.1);
+            border: none;
+            padding: 12px 24px;
+            color: #ce93d8;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-tab.active {
+            background: #ff8f00;
+            color: white;
+        }
+
+        .nav-tab:hover {
+            background: rgba(255, 183, 77, 0.2);
+        }
+
+        .tab-content {
+            display: none;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .tab-content.active {
+            display: grid;
+        }
+
+        .game-info {
+            padding: 20px;
+        }
+
+        .game-title {
+            font-size: 2rem;
+            color: #ffb74d;
+            margin-bottom: 8px;
+        }
+
+        .game-genre {
+            color: #ce93d8;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .game-description {
+            color: #e1bee7;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .key-features h3 {
+            color: #ffb74d;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .feature-item {
+            color: #ce93d8;
+            font-size: 0.9rem;
+        }
+
+        .feature-item::before {
+            content: "●";
+            color: #ffb74d;
+            margin-right: 8px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: #ff8f00;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #f57c00;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffb74d;
+            border: 1px solid #ffb74d;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 183, 77, 0.2);
+        }
+
+        .screenshots-section {
+            position: relative;
+        }
+
+        .available-badge {
+            background: #4caf50;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .available-badge::before {
+            content: "▶";
+            margin-right: 6px;
+        }
+
+        .screenshots-title {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .screenshots {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+        }
+
+        .carousel-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ce93d8;
+            font-size: 1rem;
+            text-align: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            background: linear-gradient(135deg, rgba(74, 20, 140, 0.3), rgba(142, 36, 170, 0.3));
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: #ffb74d;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .carousel-nav:hover {
+            background: rgba(255, 183, 77, 0.8);
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-prev {
+            left: 10px;
+        }
+
+        .carousel-next {
+            right: 10px;
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: #ffb74d;
+            transform: scale(1.2);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+            font-size: 0.9rem;
+        }
+
+        .footer-brand {
+            color: #ffb74d;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-text {
+            color: #ce93d8;
+            line-height: 1.6;
+        }
+
+        .footer-title {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            color: #ce93d8;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .social-link:hover {
+            color: #ffb74d;
+        }
+
+        .footer-right {
+            text-align: right;
+        }
+
+        .footer-right p {
+            color: #ce93d8;
+            margin-bottom: 5px;
+        }
+
+            @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .tab-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .tab-content.active {
+                display: grid;
+            }
+            
+            .content-area {
+                margin-bottom: 60px;
+            }
+            
+            .features-list {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .nav-tabs {
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+            
+            .nav-tab {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+            }
+            
+            .footer {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+            
+            .footer-right {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="game-icon">🎮</div>
+            <h1 class="main-title">Orbonics®</h1>
+            <p class="subtitle">
+                Crafting <strong>immersive gaming experiences</strong> that push the boundaries of<br>
+                interactive entertainment
+            </p>
+            <div class="features-list">
+                <div class="feature">Innovative Design</div>
+                <div class="feature">Cutting-Edge Tech</div>
+                <div class="feature">Epic Adventures</div>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="nav-tabs">
+            <button class="nav-tab active">The Sentinel</button>
+            <button class="nav-tab">Battle Squadron</button>
+            <button class="nav-tab">Mercenary</button>
+            <button class="nav-tab">Fluffy Island</button>
+            <button class="nav-tab">About Orbonics</button>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="content-area">
+            <!-- The Sentinel Tab Content -->
+            <div class="tab-content active" id="sentinel-content">
+                <div class="game-info">
+                    <h2 class="game-title">The Sentinel</h2>
+                    <p class="game-genre">Space Adventure RPG</p>
+                    
+                    <p class="game-description">
+                        Embark on an epic journey across the galaxy in this immersive space exploration 
+                        RPG. Command your starship, discover alien civilizations, and uncover the 
+                        mysteries of the cosmos.
+                    </p>
+
+                    <div class="key-features">
+                        <h3>Key Features</h3>
+                        <div class="features-grid">
+                            <div class="feature-item">Open-world exploration</div>
+                            <div class="feature-item">Dynamic storyline</div>
+                            <div class="feature-item">Ship customization</div>
+                            <div class="feature-item">Alien encounters</div>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <a href="https://drive.google.com/uc?export=download&id=1q9okAT2vzjEG3ukyJrvMqqfwdSCYloaF" class="btn btn-primary">📥 Download Demo</a>
+                        <a href="#" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="screenshots-section">
+                    <div class="available-badge">Available Now</div>
+                    <h3 class="screenshots-title">Screenshots</h3>
+                    <div class="screenshots">
+                        <div class="carousel-container">
+                            <div class="carousel-slide active">Coastal Monument Discovery - Ancient Sentinel Structure</div>
+                            <div class="carousel-slide">Misty Highlands - Mysterious Beacon on the Summit</div>
+                            <div class="carousel-slide">The Sentinel Logo - Cosmic Eye & Winged Guardian Symbol</div>
+                            <div class="carousel-slide">Exploration Mode - Discovering Hidden Paths</div>
+                        </div>
+                        <button class="carousel-nav carousel-prev" data-tab="sentinel">‹</button>
+                        <button class="carousel-nav carousel-next" data-tab="sentinel">›</button>
+                        <div class="carousel-indicators">
+                            <div class="carousel-dot active" data-slide="0"></div>
+                            <div class="carousel-dot" data-slide="1"></div>
+                            <div class="carousel-dot" data-slide="2"></div>
+                            <div class="carousel-dot" data-slide="3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Battle Squadron Tab Content -->
+            <div class="tab-content" id="battle-squadron-content">
+                <div class="game-info">
+                    <h2 class="game-title">Battle Squadron</h2>
+                    <p class="game-genre">Tactical Combat Simulator</p>
+                    
+                    <p class="game-description">
+                        Lead elite squadrons into intense aerial combat in this high-octane military 
+                        simulation. Master advanced fighter jets, coordinate strategic strikes, and 
+                        dominate the skies in epic multiplayer battles.
+                    </p>
+
+                    <div class="key-features">
+                        <h3>Key Features</h3>
+                        <div class="features-grid">
+                            <div class="feature-item">Realistic flight physics</div>
+                            <div class="feature-item">Multiplayer warfare</div>
+                            <div class="feature-item">Advanced weaponry</div>
+                            <div class="feature-item">Squadron tactics</div>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <a href="#" class="btn btn-primary">🚀 Play Now</a>
+                        <a href="#" class="btn btn-secondary">Watch Trailer</a>
+                    </div>
+                </div>
+
+                <div class="screenshots-section">
+                    <div class="available-badge">Live Beta</div>
+                    <h3 class="screenshots-title">Screenshots</h3>
+                    <div class="screenshots">
+                        <div class="screenshot">Cockpit View - F-22 Raptor Combat</div>
+                        <div class="screenshot">Squadron Formation Flight</div>
+                        <div class="screenshot">Missile Lock & Targeting System</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mercenary Tab Content -->
+            <div class="tab-content" id="mercenary-content">
+                <div class="game-info">
+                    <h2 class="game-title">Mercenary</h2>
+                    <p class="game-genre">Action RPG Shooter</p>
+                    
+                    <p class="game-description">
+                        Survive in a lawless cyberpunk world as a freelance mercenary. Take on dangerous 
+                        contracts, upgrade your cybernetic enhancements, and navigate the neon-lit 
+                        streets of Neo-Tokyo in this gritty action RPG.
+                    </p>
+
+                    <div class="key-features">
+                        <h3>Key Features</h3>
+                        <div class="features-grid">
+                            <div class="feature-item">Cyberpunk setting</div>
+                            <div class="feature-item">Character progression</div>
+                            <div class="feature-item">Contract system</div>
+                            <div class="feature-item">Neural implants</div>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <a href="#" class="btn btn-primary">🎯 Pre-Order</a>
+                        <a href="#" class="btn btn-secondary">System Requirements</a>
+                    </div>
+                </div>
+
+                <div class="screenshots-section">
+                    <div class="available-badge" style="background: #ff9800;">Coming 2025</div>
+                    <h3 class="screenshots-title">Screenshots</h3>
+                    <div class="screenshots">
+                        <div class="carousel-container">
+                            <div class="carousel-slide active">Neo-Tokyo Street Markets - Neon Cyberpunk World</div>
+                            <div class="carousel-slide">Cybernetic Enhancement Lab - Neural Upgrades</div>
+                            <div class="carousel-slide">High-Speed Chase Sequence - Urban Pursuit</div>
+                            <div class="carousel-slide">Underground Hacker Den - Mission Briefing</div>
+                        </div>
+                        <button class="carousel-nav carousel-prev" data-tab="mercenary">‹</button>
+                        <button class="carousel-nav carousel-next" data-tab="mercenary">›</button>
+                        <div class="carousel-indicators">
+                            <div class="carousel-dot active" data-slide="0"></div>
+                            <div class="carousel-dot" data-slide="1"></div>
+                            <div class="carousel-dot" data-slide="2"></div>
+                            <div class="carousel-dot" data-slide="3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fluffy Island Tab Content -->
+            <div class="tab-content" id="fluffy-island-content">
+                <div class="game-info">
+                    <h2 class="game-title">Fluffy Island</h2>
+                    <p class="game-genre">Casual Adventure</p>
+                    
+                    <p class="game-description">
+                        Escape to a magical tropical paradise filled with adorable creatures and 
+                        relaxing adventures. Build your dream island home, befriend fluffy companions, 
+                        and discover hidden treasures in this charming family-friendly game.
+                    </p>
+
+                    <div class="key-features">
+                        <h3>Key Features</h3>
+                        <div class="features-grid">
+                            <div class="feature-item">Island customization</div>
+                            <div class="feature-item">Cute companions</div>
+                            <div class="feature-item">Treasure hunting</div>
+                            <div class="feature-item">Peaceful gameplay</div>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <a href="#" class="btn btn-primary">🏝️ Download Free</a>
+                        <a href="#" class="btn btn-secondary">Parent Guide</a>
+                    </div>
+                </div>
+
+                <div class="screenshots-section">
+                    <div class="available-badge">Free to Play</div>
+                    <h3 class="screenshots-title">Screenshots</h3>
+                    <div class="screenshots">
+                        <div class="carousel-container">
+                            <div class="carousel-slide active">Tropical Beach Paradise - Your Island Home</div>
+                            <div class="carousel-slide">Fluffy Companion Collection - Cute Creatures</div>
+                            <div class="carousel-slide">Island Building & Decoration - Creative Mode</div>
+                            <div class="carousel-slide">Treasure Hunt Adventure - Hidden Secrets</div>
+                        </div>
+                        <button class="carousel-nav carousel-prev" data-tab="fluffy-island">‹</button>
+                        <button class="carousel-nav carousel-next" data-tab="fluffy-island">›</button>
+                        <div class="carousel-indicators">
+                            <div class="carousel-dot active" data-slide="0"></div>
+                            <div class="carousel-dot" data-slide="1"></div>
+                            <div class="carousel-dot" data-slide="2"></div>
+                            <div class="carousel-dot" data-slide="3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Orbonics Tab Content -->
+            <div class="tab-content" id="about-content">
+                <div class="game-info">
+                    <h2 class="game-title">About Orbonics</h2>
+                    <p class="game-genre">Game Development Studio</p>
+                    
+                    <p class="game-description">
+                        Founded in 2019, Orbonics is an independent game development studio passionate 
+                        about creating innovative gaming experiences. Our diverse team of developers, 
+                        artists, and designers work together to push the boundaries of interactive entertainment.
+                    </p>
+
+                    <div class="key-features">
+                        <h3>Our Mission</h3>
+                        <div class="features-grid">
+                            <div class="feature-item">Innovation first</div>
+                            <div class="feature-item">Player-focused design</div>
+                            <div class="feature-item">Quality storytelling</div>
+                            <div class="feature-item">Community driven</div>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <a href="#" class="btn btn-primary">👥 Join Our Team</a>
+                        <a href="#" class="btn btn-secondary">Contact Us</a>
+                    </div>
+                </div>
+
+                <div class="screenshots-section">
+                    <div class="available-badge" style="background: #9c27b0;">Est. 2019</div>
+                    <h3 class="screenshots-title">Our Journey</h3>
+                    <div class="screenshots">
+                        <div class="carousel-container">
+                            <div class="carousel-slide active">Development Team at Work - Creative Process</div>
+                            <div class="carousel-slide">Game Design Process - Concept to Reality</div>
+                            <div class="carousel-slide">Community Events & Awards - Player Recognition</div>
+                            <div class="carousel-slide">Studio Culture - Innovation & Collaboration</div>
+                        </div>
+                        <button class="carousel-nav carousel-prev" data-tab="about">‹</button>
+                        <button class="carousel-nav carousel-next" data-tab="about">›</button>
+                        <div class="carousel-indicators">
+                            <div class="carousel-dot active" data-slide="0"></div>
+                            <div class="carousel-dot" data-slide="1"></div>
+                            <div class="carousel-dot" data-slide="2"></div>
+                            <div class="carousel-dot" data-slide="3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div>
+                <div class="footer-brand">Orbonics®</div>
+                <p class="footer-text">
+                    Pushing the boundaries of interactive entertainment with innovative game 
+                    design and cutting-edge technology.
+                </p>
+            </div>
+            <div>
+                <h4 class="footer-title">Connect</h4>
+                <div class="social-links">
+                    <a href="#" class="social-link">🌐</a>
+                    <a href="#" class="social-link">🐦</a>
+                    <a href="#" class="social-link">📺</a>
+                    <a href="#" class="social-link">✉️</a>
+                </div>
+                <p class="footer-text" style="margin-top: 10px;">
+                    Email: <a href="mailto:support@orbonics.uk" style="color: #ffb74d; text-decoration: none;">support@orbonics.uk</a>
+                </p>
+            </div>
+            <div class="footer-right">
+                <p>Made with ❤️ by Orbonics</p>
+                <p>© 2024 Orbonics®. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Tab functionality
+        const tabs = document.querySelectorAll('.nav-tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        const tabData = {
+            'The Sentinel': 'sentinel-content',
+            'Battle Squadron': 'battle-squadron-content',
+            'Mercenary': 'mercenary-content',
+            'Fluffy Island': 'fluffy-island-content',
+            'About Orbonics': 'about-content'
+        };
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const tabText = this.textContent;
+                
+                // Remove active class from all tabs and content
+                tabs.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Show corresponding content
+                const contentId = tabData[tabText];
+                if (contentId) {
+                    document.getElementById(contentId).classList.add('active');
+                }
+            });
+        });
+
+        // Carousel functionality
+        let currentSlides = {
+            'sentinel': 0,
+            'battle-squadron': 0,
+            'mercenary': 0,
+            'fluffy-island': 0,
+            'about': 0
+        };
+
+        function updateCarousel(tabName, slideIndex) {
+            const tabContent = document.getElementById(`${tabName}-content`);
+            if (!tabContent) return;
+
+            const slides = tabContent.querySelectorAll('.carousel-slide');
+            const dots = tabContent.querySelectorAll('.carousel-dot');
+
+            // Remove active class from all slides and dots
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            // Add active class to current slide and dot
+            if (slides[slideIndex]) slides[slideIndex].classList.add('active');
+            if (dots[slideIndex]) dots[slideIndex].classList.add('active');
+
+            currentSlides[tabName] = slideIndex;
+        }
+
+        function nextSlide(tabName) {
+            const nextIndex = (currentSlides[tabName] + 1) % 4;
+            updateCarousel(tabName, nextIndex);
+        }
+
+        function prevSlide(tabName) {
+            const prevIndex = (currentSlides[tabName] - 1 + 4) % 4;
+            updateCarousel(tabName, prevIndex);
+        }
+
+        // Add event listeners for carousel navigation
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('carousel-next')) {
+                const tabName = e.target.getAttribute('data-tab');
+                nextSlide(tabName);
+            }
+            
+            if (e.target.classList.contains('carousel-prev')) {
+                const tabName = e.target.getAttribute('data-tab');
+                prevSlide(tabName);
+            }
+            
+            if (e.target.classList.contains('carousel-dot')) {
+                const slideIndex = parseInt(e.target.getAttribute('data-slide'));
+                const tabContent = e.target.closest('.tab-content');
+                const tabName = tabContent.id.replace('-content', '');
+                updateCarousel(tabName, slideIndex);
+            }
+        });
+
+        // Button hover effects
+        const buttons = document.querySelectorAll('.btn');
+        buttons.forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
