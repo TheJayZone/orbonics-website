@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orbonics® - Gaming Experiences</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -23,6 +24,22 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+        }
+
+        /* Banner */
+        .banner {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .banner img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         /* Header */
@@ -427,6 +444,11 @@
 </head>
 <body>
     <div class="container">
+        <!-- Banner -->
+        <div class="banner">
+            <img src="images/Banner.jpg" alt="Orbonics Gaming Banner">
+        </div>
+
         <!-- Header -->
         <header class="header">
             <div class="game-icon">🎮</div>
@@ -486,10 +508,10 @@
                     <h3 class="screenshots-title">Screenshots</h3>
                     <div class="screenshots">
                         <div class="carousel-container">
-                            <div class="carousel-slide active has-image"><img src="images/sentinel/screenshot-1.png" alt="Coastal Monument Discovery" class="carousel-image"></div>
-                            <div class="carousel-slide active has-image"><img src="images/sentinel/screenshot-2.png" alt="Misty Highlands - Mysterious Beacon on the Summit" class="carousel-image"></div>
-                            <div class="carousel-slide active has-image"><img src="images/sentinel/screenshot-3.png" alt="Exploration Mode - Discovering Hidden Paths" class="carousel-image"></div>
+                            <div class="carousel-slide active">Coastal Monument Discovery - Ancient Sentinel Structure</div>
+                            <div class="carousel-slide">Misty Highlands - Mysterious Beacon on the Summit</div>
                             <div class="carousel-slide">The Sentinel Logo - Cosmic Eye & Winged Guardian Symbol</div>
+                            <div class="carousel-slide">Exploration Mode - Discovering Hidden Paths</div>
                         </div>
                         <button class="carousel-nav carousel-prev" data-tab="sentinel">‹</button>
                         <button class="carousel-nav carousel-next" data-tab="sentinel">›</button>
@@ -716,7 +738,7 @@
             </div>
             <div class="footer-right">
                 <p>Made with ❤️ by Orbonics</p>
-                <p>© 2025 Orbonics®. All rights reserved.</p>
+                <p>© 2024 Orbonics®. All rights reserved.</p>
             </div>
         </footer>
     </div>
@@ -824,5 +846,3 @@
     </script>
 </body>
 </html>
-
-
