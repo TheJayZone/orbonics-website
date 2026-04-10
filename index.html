@@ -30,10 +30,11 @@
         .banner {
             width: 100%;
             max-width: 1200px;
-            margin: 0 auto 40px;
+            margin: 0 auto 20px;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
         }
 
         .banner img {
@@ -41,10 +42,23 @@
             height: auto;
             display: block;
         }
+
+        .banner-title {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-family: 'Merriweather', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: #ffb74d;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
         /* Header */
         .header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
         }
 
         .game-icon {
@@ -54,18 +68,13 @@
         }
 
         .main-title {
-            font-family: 'Merriweather', serif;
-            font-size: 3.5rem;
-            font-weight: 600;
-            color: #ffb74d;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
+            display: none;
         }
 
         .subtitle {
             font-size: 1.1rem;
             color: #e1bee7;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
             line-height: 1.6;
         }
 
@@ -94,7 +103,7 @@
         .nav-tabs {
             display: flex;
             justify-content: center;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             gap: 2px;
             flex-wrap: wrap;
         }
@@ -222,7 +231,6 @@
             font-size: 0.8rem;
             display: inline-flex;
             align-items: center;
-            margin-bottom: 15px;
         }
 
         .available-badge::before {
@@ -397,6 +405,12 @@
         }
 
         @media (max-width: 768px) {
+            .banner-title {
+                font-size: 2rem;
+                top: 10px;
+                right: 15px;
+            }
+
             .main-title {
                 font-size: 2.5rem;
             }
@@ -447,6 +461,7 @@
         <!-- Banner -->
         <div class="banner">
             <img src="images/Banner1.jpg" alt="Orbonics Gaming Banner">
+            <span class="banner-title">Orbonics®</span>
         </div>
         <!-- Header -->
         <header class="header">
@@ -455,11 +470,7 @@
                 Crafting <strong>immersive gaming experiences</strong> that push the boundaries of<br>
                 interactive entertainment and big jobs!
             </p>
-            <div class="features-list">
-                <div class="feature">Innovative Design</div>
-                <div class="feature">Cutting-Edge Tech</div>
-                <div class="feature">Epic Adventures</div>
-            </div>
+
         </header>
 
         <!-- Navigation Tabs -->
@@ -504,17 +515,17 @@
                     <div class="buttons">
                         <a href="https://drive.google.com/uc?export=download&id=153ttsNOXHo514-42KLvbhJ08xWhRpsfy" class="btn btn-primary">📥 Download Demo</a>
                         <a href="#" class="btn btn-secondary">Learn More</a>
+                        <span class="available-badge">Available Now</span>
                     </div>
                 </div>
                 <div class="screenshots-section">
-                    <div class="available-badge">Available Now</div>
                     <h3 class="screenshots-title">Screenshots</h3>
                     <div class="screenshots">
                         <div class="carousel-container">
                             <div class="carousel-slide active has-image"><img src="images/sentinel/screenshot-1.jpg" alt="Coastal Monument Discovery" class="carousel-image"></div>
                             <div class="carousel-slide has-image"><img src="images/sentinel/screenshot-2.jpg" alt="Misty Highlands" class="carousel-image"></div>
                             <div class="carousel-slide has-image"><img src="images/sentinel/screenshot-3.jpg" alt="Exploration Mode" class="carousel-image"></div>
-                            <div class="carousel-slide has-image"><img src="images/sentinel/screenshot-4.jpg" alt="Exploration Mode" class="carousel-image"></div>
+                            <div class="carousel-slide">The Sentinel Logo - Cosmic Eye &amp; Winged Guardian Symbol</div>
                         </div>
                         <button class="carousel-nav carousel-prev" data-tab="sentinel">‹</button>
                         <button class="carousel-nav carousel-next" data-tab="sentinel">›</button>
@@ -550,10 +561,10 @@
                     <div class="buttons">
                         <a href="#" class="btn btn-primary">🏰 Play Now</a>
                         <a href="#" class="btn btn-secondary">Learn More</a>
+                        <span class="available-badge">Classic</span>
                     </div>
                 </div>
                 <div class="screenshots-section">
-                    <div class="available-badge">Classic</div>
                     <h3 class="screenshots-title">Screenshots</h3>
                     <div class="screenshots">
                         <div class="carousel-container">
@@ -596,10 +607,10 @@
                     <div class="buttons">
                         <a href="#" class="btn btn-primary">🚀 Play Now</a>
                         <a href="#" class="btn btn-secondary">Watch Trailer</a>
+                        <span class="available-badge">Live Beta</span>
                     </div>
                 </div>
                 <div class="screenshots-section">
-                    <div class="available-badge">Live Beta</div>
                     <h3 class="screenshots-title">Screenshots</h3>
                     <div class="screenshots">
                         <div class="carousel-container">
@@ -642,10 +653,10 @@
                     <div class="buttons">
                         <a href="#" class="btn btn-primary">🎯 Pre-Order</a>
                         <a href="#" class="btn btn-secondary">System Requirements</a>
+                        <span class="available-badge" style="background: #ff9800;">Coming Soon</span>
                     </div>
                 </div>
                 <div class="screenshots-section">
-                    <div class="available-badge" style="background: #ff9800;">Coming Soon</div>
                     <h3 class="screenshots-title">Screenshots</h3>
                     <div class="screenshots">
                         <div class="carousel-container">
@@ -673,8 +684,8 @@
                     <p class="game-genre">Casual Adventure</p>
                     <p class="game-description">
                         Escape to a magical tropical paradise filled with adorable creatures and 
-                        relaxing adventures. Give the Fluffy Kittens exactly what they deserve. 
-                        Discover hidden treasures in this charming adult game.  PEGI 18+
+                        relaxing adventures. Build your dream kitten home, befriend fluffy companions, 
+                        and discover hidden treasures in this charming family-friendly game.
                     </p>
                     <div class="key-features">
                         <h3>Key Features</h3>
@@ -682,16 +693,16 @@
                             <div class="feature-item">Kitten customization</div>
                             <div class="feature-item">Cute companions</div>
                             <div class="feature-item">Treasure hunting</div>
-                            <div class="feature-item">Brutal gameplay</div>
+                            <div class="feature-item">Peaceful gameplay</div>
                         </div>
                     </div>
                     <div class="buttons">
                         <a href="#" class="btn btn-primary">🏝️ Download Free</a>
                         <a href="#" class="btn btn-secondary">Parent Guide</a>
+                        <span class="available-badge">Free to Play</span>
                     </div>
                 </div>
                 <div class="screenshots-section">
-                    <div class="available-badge">Free to Play</div>
                     <h3 class="screenshots-title">Screenshots</h3>
                     <div class="screenshots">
                         <div class="carousel-container">
@@ -734,10 +745,10 @@
                     <div class="buttons">
                         <a href="#" class="btn btn-primary">🏛️ Play Now</a>
                         <a href="#" class="btn btn-secondary">Learn More</a>
+                        <span class="available-badge">Classic</span>
                     </div>
                 </div>
                 <div class="screenshots-section">
-                    <div class="available-badge">Classic</div>
                     <h3 class="screenshots-title">Screenshots</h3>
                     <div class="screenshots">
                         <div class="carousel-container">
@@ -780,10 +791,10 @@
                     <div class="buttons">
                         <a href="#" class="btn btn-primary">🧛 Play Now</a>
                         <a href="#" class="btn btn-secondary">Learn More</a>
+                        <span class="available-badge" style="background: #b71c1c;">Dark Classic</span>
                     </div>
                 </div>
                 <div class="screenshots-section">
-                    <div class="available-badge" style="background: #b71c1c;">Dark Classic</div>
                     <h3 class="screenshots-title">Screenshots</h3>
                     <div class="screenshots">
                         <div class="carousel-container">
@@ -826,10 +837,10 @@
                     <div class="buttons">
                         <a href="#" class="btn btn-primary">🎱 Play Now</a>
                         <a href="#" class="btn btn-secondary">Learn More</a>
+                        <span class="available-badge">Classic</span>
                     </div>
                 </div>
                 <div class="screenshots-section">
-                    <div class="available-badge">Classic</div>
                     <h3 class="screenshots-title">Screenshots</h3>
                     <div class="screenshots">
                         <div class="carousel-container">
@@ -872,10 +883,10 @@
                     <div class="buttons">
                         <a href="#" class="btn btn-primary">⚔️ Play Now</a>
                         <a href="#" class="btn btn-secondary">Learn More</a>
+                        <span class="available-badge" style="background: #1565c0;">Legend</span>
                     </div>
                 </div>
                 <div class="screenshots-section">
-                    <div class="available-badge" style="background: #1565c0;">Legend</div>
                     <h3 class="screenshots-title">Screenshots</h3>
                     <div class="screenshots">
                         <div class="carousel-container">
@@ -904,13 +915,13 @@
                     <p class="game-description">
                         Defend Earth from the relentless alien forces of Zelda and her android army. 
                         Command the Terrahawks team, pilot the Battlehawk, and protect humanity from 
-                        invasion in this classic sci-fi action game based on the beloved telly series.
+                        invasion in this classic sci-fi action game based on the beloved TV series.
                     </p>
                     <div class="key-features">
                         <h3>Key Features</h3>
                         <div class="features-grid">
                             <div class="feature-item">Sci-fi combat</div>
-                            <div class="feature-item">Telly series inspired</div>
+                            <div class="feature-item">TV series inspired</div>
                             <div class="feature-item">Vehicle battles</div>
                             <div class="feature-item">Alien enemies</div>
                         </div>
@@ -918,10 +929,10 @@
                     <div class="buttons">
                         <a href="#" class="btn btn-primary">🚀 Play Now</a>
                         <a href="#" class="btn btn-secondary">Learn More</a>
+                        <span class="available-badge">Classic</span>
                     </div>
                 </div>
                 <div class="screenshots-section">
-                    <div class="available-badge">Classic</div>
                     <h3 class="screenshots-title">Screenshots</h3>
                     <div class="screenshots">
                         <div class="carousel-container">
@@ -964,10 +975,10 @@
                     <div class="buttons">
                         <a href="#" class="btn btn-primary">♟️ Play Now</a>
                         <a href="#" class="btn btn-secondary">Learn More</a>
+                        <span class="available-badge">Classic</span>
                     </div>
                 </div>
                 <div class="screenshots-section">
-                    <div class="available-badge">Classic</div>
                     <h3 class="screenshots-title">Screenshots</h3>
                     <div class="screenshots">
                         <div class="carousel-container">
@@ -1010,10 +1021,10 @@
                     <div class="buttons">
                         <a href="#" class="btn btn-primary">👾 Play Now</a>
                         <a href="#" class="btn btn-secondary">Learn More</a>
+                        <span class="available-badge" style="background: #4e342e;">Invasion</span>
                     </div>
                 </div>
                 <div class="screenshots-section">
-                    <div class="available-badge" style="background: #4e342e;">Invasion</div>
                     <h3 class="screenshots-title">Screenshots</h3>
                     <div class="screenshots">
                         <div class="carousel-container">
@@ -1056,10 +1067,10 @@
                     <div class="buttons">
                         <a href="#" class="btn btn-primary">👥 Join Our Team</a>
                         <a href="#" class="btn btn-secondary">Contact Us</a>
+                        <span class="available-badge" style="background: #9c27b0;">Est. 2019</span>
                     </div>
                 </div>
                 <div class="screenshots-section">
-                    <div class="available-badge" style="background: #9c27b0;">Est. 2019</div>
                     <h3 class="screenshots-title">Our Journey</h3>
                     <div class="screenshots">
                         <div class="carousel-container">
