@@ -248,7 +248,8 @@
             position: relative;
             width: 100%;
             height: 0;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            /* reduce height to remove excess vertical space */
+            padding-bottom: 45%;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 8px;
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -354,8 +355,9 @@
 
         /* Footer */
         .footer {
-            margin-top: 80px;
-            padding-top: 40px;
+            /* reduce top spacing so footer sits closer to the content */
+            margin-top: 20px;
+            padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
