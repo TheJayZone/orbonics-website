@@ -363,6 +363,8 @@
             grid-template-columns: 1fr 1fr 1fr;
             gap: 5px;
             font-size: 0.9rem;
+            /* align items to the end so the right column sits flush with the email line */
+            align-items: end;
         }
 
         .footer-brand {
@@ -403,7 +405,7 @@
 
         .footer-right p {
             color: #ce93d8;
-            margin-bottom: 5px;
+            margin-bottom: 0;
         }
 
         @media (max-width: 768px) {
@@ -450,6 +452,8 @@
                 grid-template-columns: 1fr;
                 gap: 30px;
                 text-align: center;
+                /* center items on small screens so layout stacks nicely */
+                align-items: center;
             }
             
             .footer-right {
