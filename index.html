@@ -494,6 +494,7 @@
             <button class="nav-tab">Battle Chess</button>
             <button class="nav-tab">War of the Worlds</button>
             <button class="nav-tab">Trap Door</button>
+            <button class="nav-tab">Chorlton and the Wheelies</button>
             <button class="nav-tab">About Orbonics</button>
         </nav>
 
@@ -1099,6 +1100,53 @@
                 </div>
             </div>
 
+            <!-- Chorlton and the Wheelies Tab Content -->
+            <div class="tab-content" id="chorlton-and-the-wheelies-content">
+                <div class="game-info">
+                    <h2 class="game-title">Chorlton and the Wheelies</h2>
+                    <p class="game-genre">Adventure Platformer</p>
+                    <p class="game-description">
+                        Based on the iconic 1970s British children's television programme, Chorlton and the 
+                        Wheelies brings the whimsical world of the Wheelies to life. Guide Chorlton the dragon 
+                        through colourful adventures, help the Wheelies solve problems, and explore the charming 
+                        village in this delightful interactive experience inspired by the beloved classic show.
+                    </p>
+                    <div class="key-features">
+                        <h3>Key Features</h3>
+                        <div class="features-grid">
+                            <div class="feature-item">1970s nostalgia</div>
+                            <div class="feature-item">Wheelies characters</div>
+                            <div class="feature-item">Village exploration</div>
+                            <div class="feature-item">Whimsical adventures</div>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <a href="#" class="btn btn-primary">🎠 Play Now</a>
+                        <a href="#" class="btn btn-secondary">Learn More</a>
+                        <span class="available-badge" style="background: #ff6f00;">Coming Soon</span>
+                    </div>
+                </div>
+                <div class="screenshots-section">
+                    <h3 class="screenshots-title">Screenshots</h3>
+                    <div class="screenshots">
+                        <div class="carousel-container">
+                            <div class="carousel-slide active has-image"><img src="images/chorlton-and-the-wheelies/screenshot-1.jpg" alt="Chorlton and the Wheelies Screenshot 1" class="carousel-image"></div>
+                            <div class="carousel-slide has-image"><img src="images/chorlton-and-the-wheelies/screenshot-2.jpg" alt="Chorlton and the Wheelies Screenshot 2" class="carousel-image"></div>
+                            <div class="carousel-slide has-image"><img src="images/chorlton-and-the-wheelies/screenshot-3.jpg" alt="Chorlton and the Wheelies Screenshot 3" class="carousel-image"></div>
+                            <div class="carousel-slide has-image"><img src="images/chorlton-and-the-wheelies/screenshot-4.jpg" alt="Chorlton and the Wheelies Screenshot 4" class="carousel-image"></div>
+                        </div>
+                        <button class="carousel-nav carousel-prev" data-tab="chorlton-and-the-wheelies">‹</button>
+                        <button class="carousel-nav carousel-next" data-tab="chorlton-and-the-wheelies">›</button>
+                        <div class="carousel-indicators">
+                            <div class="carousel-dot active" data-slide="0"></div>
+                            <div class="carousel-dot" data-slide="1"></div>
+                            <div class="carousel-dot" data-slide="2"></div>
+                            <div class="carousel-dot" data-slide="3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- About Orbonics Tab Content -->
             <div class="tab-content" id="about-content">
                 <div class="game-info">
@@ -1175,20 +1223,21 @@
     <script>
         // Tab data mapping tab label to content ID
         const tabData = {
-            'The Sentinel':      'sentinel-content',
-            'Atic Atac':         'atic-atac-content',
-            'Battle Squadron':   'battle-squadron-content',
-            'Mercenary':         'mercenary-content',
-            'Fluffy Kitten':     'fluffy-kitten-content',
-            'Tower of Babel':    'tower-of-babel-content',
-            'Blood Omen':        'blood-omen-content',
-            'Rollerball':        'rollerball-content',
-            'FFVII':             'ffvii-content',
-            'Terrahawks':        'terrahawks-content',
-            'Battle Chess':      'battle-chess-content',
-            'War of the Worlds': 'war-of-the-worlds-content',
-            'Trap Door':         'trap-door-content',
-            'About Orbonics':    'about-content'
+            'The Sentinel':            'sentinel-content',
+            'Atic Atac':               'atic-atac-content',
+            'Battle Squadron':         'battle-squadron-content',
+            'Mercenary':               'mercenary-content',
+            'Fluffy Kitten':           'fluffy-kitten-content',
+            'Tower of Babel':          'tower-of-babel-content',
+            'Blood Omen':              'blood-omen-content',
+            'Rollerball':              'rollerball-content',
+            'FFVII':                   'ffvii-content',
+            'Terrahawks':              'terrahawks-content',
+            'Battle Chess':            'battle-chess-content',
+            'War of the Worlds':       'war-of-the-worlds-content',
+            'Trap Door':               'trap-door-content',
+            'Chorlton and the Wheelies': 'chorlton-and-the-wheelies-content',
+            'About Orbonics':          'about-content'
         };
 
         const tabs = document.querySelectorAll('.nav-tab');
@@ -1208,20 +1257,21 @@
 
         // Carousel functionality
         let currentSlides = {
-            'sentinel':          0,
-            'atic-atac':         0,
-            'battle-squadron':   0,
-            'mercenary':         0,
-            'fluffy-kitten':     0,
-            'tower-of-babel':    0,
-            'blood-omen':        0,
-            'rollerball':        0,
-            'ffvii':             0,
-            'terrahawks':        0,
-            'battle-chess':      0,
-            'war-of-the-worlds': 0,
-            'trap-door':         0,
-            'about':             0
+            'sentinel':                   0,
+            'atic-atac':                  0,
+            'battle-squadron':            0,
+            'mercenary':                  0,
+            'fluffy-kitten':              0,
+            'tower-of-babel':             0,
+            'blood-omen':                 0,
+            'rollerball':                 0,
+            'ffvii':                      0,
+            'terrahawks':                 0,
+            'battle-chess':               0,
+            'war-of-the-worlds':          0,
+            'trap-door':                  0,
+            'chorlton-and-the-wheelies':  0,
+            'about':                      0
         };
 
         function updateCarousel(tabName, slideIndex) {
