@@ -1,1 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbonics - Gaming Experiences</title>
+	<link rel="icon" type="image/x-icon" href="images/Favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Times New Roman', serif;
+            background: linear-gradient(135deg, #4a148c 0%, #7b1fa2 50%, #8e24aa 100%);
+            color: white;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            /* remove top padding so banner sits flush with top */
+            padding: 0 20px 20px;
+        }
+
+        /* Banner */
+        .banner {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .banner img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .banner-title {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-family: 'Merriweather', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: #ffb74d;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .game-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ffb74d;
+        }
+
+        .main-title {
+            display: none;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #e1bee7;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .features-list {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            color: #ce93d8;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature::before {
+            content: "";
+            color: #4caf50;
+            margin-right: 8px;
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            gap: 2px;
+            flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            background: rgba(255, 183, 77, 0.1);
+            border: none;
+            padding: 12px 24px;
+            color: #ce93d8;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-tab.active {
+            background: #ff8f00;
+            color: white;
+        }
+
+        .nav-tab:hover {
+            background: rgba(255, 183, 77, 0.2);
+        }
+
+        /* Secondary Navigation Tabs */
+        .secondary-nav-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            gap: 2px;
+            flex-wrap: wrap;
+        }
+
+        .secondary-nav-tab {
+            background: rgba(255, 183, 77, 0.1);
+            border: none;
+            padding: 10px 16px;
+            color: #ce93d8;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .secondary-nav-tab.active {
+            background: #ffb74d;
+            color: #4a148c;
+        }
+
+        .secondary-nav-tab:hover {
+            background: rgba(255, 183, 77, 0.2);
+        }
+
+        .classic-games-container {
+            display: none;
+        }
+
+        .classic-games-container.active {
+            display: block;
+        }
+
+        .secondary-tab-content {
+            display: none;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .secondary-tab-content.active {
+            display: grid;
+        }
+
+        .tab-content {
+            display: none;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .tab-content.active {
+            display: grid;
+        }
+
+        .game-info {
+            padding: 20px;
+        }
+
+        .game-title {
+            font-size: 2rem;
+            color: #ffb74d;
+            margin-bottom: 8px;
+        }
+
+        .game-genre {
+            color: #ce93d8;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .game-description {
+            color: #e1bee7;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .key-features h3 {
+            color: #ffb74d;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .feature-item {
+            color: #ce93d8;
+            font-size: 0.9rem;
+        }
+
+        .feature-item::before {
+            content: "";
+            color: #ffb74d;
+            margin-right: 8px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: #ff8f00;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #f57c00;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffb74d;
+            border: 1px solid #ffb74d;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 183, 77, 0.2);
+        }
+
+        .screenshots-section {
+            position: relative;
+        }
+
+        .available-badge {
+            background: #4caf50;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .available-badge::before {
+            content: "";
+            margin-right: 6px;
+        }
+
+        .screenshots-title {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .screenshots {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+        }
+
+        .carousel-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ce93d8;
+            font-size: 1rem;
+            text-align: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            background: linear-gradient(135deg, rgba(74, 20, 140, 0.3), rgba(142, 36, 170, 0.3));
+        }
+
+        .carousel-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 6px;
+        }
+
+        .carousel-slide.has-image {
+            padding: 0;
+            background: none;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: #ffb74d;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .carousel-nav:hover {
+            background: rgba(255, 183, 77, 0.8);
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-prev {
+            left: 10px;
+        }
+
+        .carousel-next {
+            right: 10px;
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: #ffb74d;
+            transform: scale(1.2);
+        }
+
+        /* Footer */
+        .footer {
+            /* reduce top spacing so footer sits closer to the content */
+            margin-top: 2px;
+            padding-top: 2px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 5px;
+            font-size: 0.9rem;
+            /* align items to the end so the right column sits flush with the email line */
+            align-items: end;
+        }
+
+        .footer-brand {
+            color: #ffb74d;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-text {
+            color: #ce93d8;
+            line-height: 1.6;
+        }
+
+        .footer-title {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            color: #ce93d8;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .social-link:hover {
+            color: #ffb74d;
+        }
+
+        .footer-right {
+            text-align: right;
+        }
+
+        .footer-right p {
+            color: #ce93d8;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .banner-title {
+                font-size: 2rem;
+                top: 10px;
+                right: 15px;
+            }
+
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .tab-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .tab-content.active {
+                display: grid;
+            }
+            
+            .content-area {
+                margin-bottom: 60px;
+            }
+            
+            .features-list {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .nav-tabs {
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+            
+            .nav-tab {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+            }
+
+            .secondary-nav-tab {
+                padding: 6px 12px;
+                font-size: 0.75rem;
+            }
+            
+            .footer {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+                /* centre items on small screens so layout stacks nicely */
+                align-items: center;
+            }
+            
+            .footer-right {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Banner -->
+        <div class="banner">
+            <img src="images/Banner1.jpg" alt="Orbonics Gaming Banner">
+            <span class="banner-title">Orbonics</span>
+        </div>
+        <!-- Header -->
+        <header class="header">
+            <h1 class="main-title">Orbonics</h1>
+            <p class="subtitle">
+                Crafting <strong>immersive gaming experiences</strong> that push the boundaries of interactive entertainment.
+            </p>
+
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="nav-tabs">
+            <button class="nav-tab active">Fluffy Kitten</button>
+            <button class="nav-tab">Rollerball</button>
+            <button class="nav-tab">Classic Game Research</button>
+            <button class="nav-tab">About Orbonics</button>
+        </nav>
+        <!-- Main Content -->
+        <!-- Main Content -->
+        <div class="content-area">
+
+            <!-- Fluffy Kitten Tab Content (Main Level) -->
+            <div class="tab-content active" id="fluffy-kitten-content">
+                <div class="game-info">
+                    <h2 class="game-title">Fluffy Kitten</h2>
+                    <p class="game-genre">Casual Adventure</p>
+                    <p class="game-description">
+                        The wife has stopped nagging, the kids are in bed and you find yourself with five minute peace to yourself. This is your chance to play Fluffy Kitten. A brutal but satisfying interaction with cute, fluffy kittens. This is your chance to give them exactly what they deserve. PEGI 18. Fluffy Kitten is available to download right now.
+                    </p>
+                    <div class="key-features">
+                        <h3>Key Features</h3>
+                        <div class="features-grid">
+                            <div class="feature-item">Lots of kttens</div>
+                            <div class="feature-item">Simple controls</div>
+                            <div class="feature-item">Blood and Gore</div>
+                            <div class="feature-item">Satisfying gameplay</div>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <a href="https://drive.google.com/file/d/10APx6Dn0DkWXK7QKRmbRiWvaCwEFLny6" class="btn btn-primary">Download</a>
+                        <a href="#" class="btn btn-secondary">Parent Guide</a>
+                        <span class="available-badge">Free to Play</span>
+                    </div>
+                </div>
+                <div class="screenshots-section">
+                    <h3 class="screenshots-title">Screenshots</h3>
+                    <div class="screenshots">
+                        <div class="carousel-container">
+                            <div class="carousel-slide active has-image"><img src="images/fluffy-kitten/screenshot-1.jpg" alt="Fluffy Kitten Screenshot 1" class="carousel-image"></div>
+                            <div class="carousel-slide has-image"><img src="images/fluffy-kitten/screenshot-2.jpg" alt="Fluffy Kitten Screenshot 2" class="carousel-image"></div>
+                            <div class="carousel-slide has-image"><img src="images/fluffy-kitten/screenshot-3.jpg" alt="Fluffy Kitten Screenshot 3" class="carousel-image"></div>
+                            <div class="carousel-slide has-image"><img src="images/fluffy-kitten/screenshot-4.jpg" alt="Fluffy Kitten Screenshot 4" class="carousel-image"></div>
+                        </div>
+                        <button class="carousel-nav carousel-prev" data-tab="fluffy-kitten">‹</button>
+                        <button class="carousel-nav carousel-next" data-tab="fluffy-kitten">›</button>
+                        <div class="carousel-indicators">
+                            <button class="carousel-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+                            <button class="carousel-dot" data-slide="1" aria-label="Go to slide 2"></button>
+                            <button class="carousel-dot" data-slide="2" aria-label="Go to slide 3"></button>
+                            <button class="carousel-dot" data-slide="3" aria-label="Go to slide 4"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rollerball Tab Content (Main Level) -->
+            <div class="tab-content" id="rollerball-content">
+                <div class="game-info">
+                    <h2 class="game-title">Rollerball</h2>
+                    <p class="game-genre">Arcade Sports</p>
+                    <p class="game-description">
+                        Experience the ultimate pinball-style arena sport. Guide your ball through 
+                        increasingly frantic courses, smash through obstacles, rack up massive combos, 
+                        and top the leaderboards in this fast-paced arcade classic.
+                    </p>
+                    <div class="key-features">
+                        <h3>Key Features</h3>
+                        <div class="features-grid">
+                            <div class="feature-item">Arcade gameplay</div>
+                            <div class="feature-item">Multiple arenas</div>
+                            <div class="feature-item">High score chasing</div>
+                            <div class="feature-item">Classic feel</div>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <a href="https://drive.google.com/file/d/18i_Yg1xqulPEWRpm6GuIuMzTN_9zzWgx" class="btn btn-primary">Download</a>
+                        <a href="#" class="btn btn-secondary">Learn More</a>
+                        <span class="available-badge">Classic</span>
+                    </div>
+                </div>
+                <div class="screenshots-section">
+                    <h3 class="screenshots-title">Screenshots</h3>
+                    <div class="screenshots">
+                        <div class="carousel-container">
+                            <div class="carousel-slide active has-image"><img src="images/rollerball/screenshot-1.jpg" alt="Rollerball Screenshot 1" class="carousel-image"></div>
+                            <div class="carousel-slide has-image"><img src="images/rollerball/screenshot-2.jpg" alt="Rollerball Screenshot 2" class="carousel-image"></div>
+                            <div class="carousel-slide has-image"><img src="images/rollerball/screenshot-3.jpg" alt="Rollerball Screenshot 3" class="carousel-image"></div>
+                            <div class="carousel-slide has-image"><img src="images/rollerball/screenshot-4.jpg" alt="Rollerball Screenshot 4" class="carousel-image"></div>
+                        </div>
+                        <button class="carousel-nav carousel-prev" data-tab="rollerball">‹</button>
+                        <button class="carousel-nav carousel-next" data-tab="rollerball">›</button>
+                        <div class="carousel-indicators">
+                            <button class="carousel-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+                            <button class="carousel-dot" data-slide="1" aria-label="Go to slide 2"></button>
+                            <button class="carousel-dot" data-slide="2" aria-label="Go to slide 3"></button>
+                            <button class="carousel-dot" data-slide="3" aria-label="Go to slide 4"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Classic Game Research Tab Content (Main Level) -->
+            <div class="tab-content" id="classic-game-research-content">
+                <!-- Secondary Navigation for Classic Games -->
+                <div class="classic-games-container active">
+                    <nav class="secondary-nav-tabs">
+                        <button class="secondary-nav-tab active">The Sentinel</button>
+                        <button class="secondary-nav-tab">Atic Atac</button>
+                        <button class="secondary-nav-tab">Battle Squadron</button>
+                        <button class="secondary-nav-tab">Mercenary</button>
+                        <button class="secondary-nav-tab">Tower of Babel</button>
+                        <button class="secondary-nav-tab">Blood Omen</button>
+                        <button class="secondary-nav-tab">Terrahawks</button>
+                        <button class="secondary-nav-tab">Battle Chess</button>
+                        <button class="secondary-nav-tab">War of the Worlds</button>
+                        <button class="secondary-nav-tab">Trap Door</button>
+                        <button class="secondary-nav-tab">Chorlton and the Wheelies</button>
+                        <button class="secondary-nav-tab">Magic Realm</button>
+                    </nav>
+
+                    <div class="secondary-tab-content active" id="sentinel-content">
+                                    <div class="game-info">
+                                        <h2 class="game-title">The Sentinel</h2>
+                                        <p class="game-genre">Space Adventure RPG</p>
+                                        <p class="game-description">
+                                            Geoff Crammond's groundbreaking 1986 classic — one of the first home computer games to use solid-filled 3D graphics. Navigate a vast series of surreal, checkered landscapes as a Synthoid, absorbing objects to gain height and energy. The Sentinel stands as ruler atop the highest peak, slowly rotating and draining the energy of anything it sees. Climb higher, absorb the Sentinel, and transfer your consciousness across 10,000 unique landscapes.
+                                        </p>
+                                        <div class="buttons">
+                                            <a href="https://drive.google.com/uc?export=download&id=153ttsNOXHo514-42KLvbhJ08xWhRpsfy" class="btn btn-primary">Download High Spec</a>
+                                            <span class="available-badge">Available Now</span>
+                                        </div>
+                                    </div>
+                                    <div class="screenshots-section">
+                                        <h3 class="screenshots-title">Screenshots</h3>
+                                        <div class="screenshots">
+                                            <div class="carousel-container">
+                                                <div class="carousel-slide active has-image"><img src="images/sentinel/screenshot-1.jpg" alt="Coastal Monument Discovery" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/sentinel/screenshot-2.jpg" alt="Misty Highlands" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/sentinel/screenshot-3.jpg" alt="Exploration Mode" class="carousel-image"></div>
+                                                <div class="carousel-slide">The Sentinel Logo - Cosmic Eye &amp; Winged Guardian Symbol</div>
+                                            </div>
+                                            <button class="carousel-nav carousel-prev" data-tab="sentinel">‹</button>
+                                            <button class="carousel-nav carousel-next" data-tab="sentinel">›</button>
+                                            <div class="carousel-indicators">
+                                                <button class="carousel-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+                                                <button class="carousel-dot" data-slide="1" aria-label="Go to slide 2"></button>
+                                                <button class="carousel-dot" data-slide="2" aria-label="Go to slide 3"></button>
+                                                <button class="carousel-dot" data-slide="3" aria-label="Go to slide 4"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        </div>
+
+                    <div class="secondary-tab-content" id="atic-atac-content">
+                                    <div class="game-info">
+                                        <h2 class="game-title">Atic Atac</h2>
+                                        <p class="game-genre">Classic Action Adventure</p>
+                                        <p class="game-description">
+                                            Explore the haunted rooms of a cursed castle in this beloved classic action 
+                                            adventure. Collect keys, battle monsters, and find the three pieces of the 
+                                            magic amulet to escape before time runs out.
+                                        </p>
+                                        <div class="key-features">
+                                            <h3>Key Features</h3>
+                                            <div class="features-grid">
+                                                <div class="feature-item">Haunted castle setting</div>
+                                                <div class="feature-item">Three playable characters</div>
+                                                <div class="feature-item">Monster battles</div>
+                                                <div class="feature-item">Hidden secrets</div>
+                                            </div>
+                                        </div>
+                                        <div class="buttons">
+                                            <a href="#" class="btn btn-primary">🏰 Play Now</a>
+                                            <a href="#" class="btn btn-secondary">Learn More</a>
+                                            <span class="available-badge">Classic</span>
+                                        </div>
+                                    </div>
+                                    <div class="screenshots-section">
+                                        <h3 class="screenshots-title">Screenshots</h3>
+                                        <div class="screenshots">
+                                            <div class="carousel-container">
+                                                <div class="carousel-slide active has-image"><img src="images/atic-atac/screenshot-1.jpg" alt="Atic Atac Screenshot 1" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/atic-atac/screenshot-2.jpg" alt="Atic Atac Screenshot 2" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/atic-atac/screenshot-3.jpg" alt="Atic Atac Screenshot 3" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/atic-atac/screenshot-4.jpg" alt="Atic Atac Screenshot 4" class="carousel-image"></div>
+                                            </div>
+                                            <button class="carousel-nav carousel-prev" data-tab="atic-atac">‹</button>
+                                            <button class="carousel-nav carousel-next" data-tab="atic-atac">›</button>
+                                            <div class="carousel-indicators">
+                                                <button class="carousel-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+                                                <button class="carousel-dot" data-slide="1" aria-label="Go to slide 2"></button>
+                                                <button class="carousel-dot" data-slide="2" aria-label="Go to slide 3"></button>
+                                                <button class="carousel-dot" data-slide="3" aria-label="Go to slide 4"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                    <div class="secondary-tab-content" id="battle-squadron-content">
+                                    <div class="game-info">
+                                        <h2 class="game-title">Battle Squadron</h2>
+                                        <p class="game-genre">Tactical Combat Simulator</p>
+                                        <p class="game-description">
+                                            Lead elite squadrons into intense aerial combat in this high-octane military 
+                                            simulation. Master advanced fighter jets, coordinate strategic strikes, and 
+                                            dominate the skies in epic multiplayer battles.
+                                        </p>
+                                        <div class="key-features">
+                                            <h3>Key Features</h3>
+                                            <div class="features-grid">
+                                                <div class="feature-item">Realistic flight physics</div>
+                                                <div class="feature-item">Multiplayer warfare</div>
+                                                <div class="feature-item">Advanced weaponry</div>
+                                                <div class="feature-item">Squadron tactics</div>
+                                            </div>
+                                        </div>
+                                        <div class="buttons">
+                                            <a href="https://drive.google.com/file/d/15s6xnkBZFKcIH0YkGCF0WILUHmh0pFXA" class="btn btn-primary">Download</a>
+                                            <a href="#" class="btn btn-secondary">Watch Trailer</a>
+                                            <span class="available-badge">Live Beta</span>
+                                        </div>
+                                    </div>
+                                    <div class="screenshots-section">
+                                        <h3 class="screenshots-title">Screenshots</h3>
+                                        <div class="screenshots">
+                                            <div class="carousel-container">
+                                                <div class="carousel-slide active has-image"><img src="images/battle-squadron/screenshot-1.jpg" alt="Battle Squadron Screenshot 1" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/battle-squadron/screenshot-2.jpg" alt="Battle Squadron Screenshot 2" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/battle-squadron/screenshot-3.jpg" alt="Battle Squadron Screenshot 3" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/battle-squadron/screenshot-4.jpg" alt="Battle Squadron Screenshot 4" class="carousel-image"></div>
+                                            </div>
+                                            <button class="carousel-nav carousel-prev" data-tab="battle-squadron">‹</button>
+                                            <button class="carousel-nav carousel-next" data-tab="battle-squadron">›</button>
+                                            <div class="carousel-indicators">
+                                                <button class="carousel-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+                                                <button class="carousel-dot" data-slide="1" aria-label="Go to slide 2"></button>
+                                                <button class="carousel-dot" data-slide="2" aria-label="Go to slide 3"></button>
+                                                <button class="carousel-dot" data-slide="3" aria-label="Go to slide 4"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                    <div class="secondary-tab-content" id="mercenary-content">
+                                    <div class="game-info">
+                                        <h2 class="game-title">Mercenary</h2>
+                                        <p class="game-genre">Action RPG Shooter</p>
+                                        <p class="game-description">
+                                            Survive in a lawless cyberpunk world as a freelance mercenary. Take on dangerous 
+                                            contracts, upgrade your cybernetic enhancements, and navigate the neon-lit 
+                                            streets of Neo-Tokyo in this gritty action RPG.
+                                        </p>
+                                        <div class="key-features">
+                                            <h3>Key Features</h3>
+                                            <div class="features-grid">
+                                                <div class="feature-item">Cyberpunk setting</div>
+                                                <div class="feature-item">Character progression</div>
+                                                <div class="feature-item">Contract system</div>
+                                                <div class="feature-item">Neural implants</div>
+                                            </div>
+                                        </div>
+                                        <div class="buttons">
+                                            <a href="#" class="btn btn-primary">Pre-Order</a>
+                                            <a href="#" class="btn btn-secondary">System Requirements</a>
+                                            <span class="available-badge" style="background: #ff9800;">Coming Soon</span>
+                                        </div>
+                                    </div>
+                                    <div class="screenshots-section">
+                                        <h3 class="screenshots-title">Screenshots</h3>
+                                        <div class="screenshots">
+                                            <div class="carousel-container">
+                                                <div class="carousel-slide active has-image"><img src="images/mercenary/screenshot-1.jpg" alt="Mercenary Screenshot 1" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/mercenary/screenshot-2.jpg" alt="Mercenary Screenshot 2" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/mercenary/screenshot-3.jpg" alt="Mercenary Screenshot 3" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/mercenary/screenshot-4.jpg" alt="Mercenary Screenshot 4" class="carousel-image"></div>
+                                            </div>
+                                            <button class="carousel-nav carousel-prev" data-tab="mercenary">‹</button>
+                                            <button class="carousel-nav carousel-next" data-tab="mercenary">›</button>
+                                            <div class="carousel-indicators">
+                                                <button class="carousel-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+                                                <button class="carousel-dot" data-slide="1" aria-label="Go to slide 2"></button>
+                                                <button class="carousel-dot" data-slide="2" aria-label="Go to slide 3"></button>
+                                                <button class="carousel-dot" data-slide="3" aria-label="Go to slide 4"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        </div>
+
+                    <div class="secondary-tab-content" id="tower-of-babel-content">
+                                    <div class="game-info">
+                                        <h2 class="game-title">Tower of Babel</h2>
+                                        <p class="game-genre">Puzzle Strategy</p>
+                                        <p class="game-description">
+                                            Build, balance, and outwit your way to the top in this ancient puzzle strategy 
+                                            game. Stack blocks, manage resources, and construct the greatest tower the world 
+                                            has ever seen — before it all comes tumbling down.
+                                        </p>
+                                        <div class="key-features">
+                                            <h3>Key Features</h3>
+                                            <div class="features-grid">
+                                                <div class="feature-item">Physics-based building</div>
+                                                <div class="feature-item">Strategic planning</div>
+                                                <div class="feature-item">Ancient setting</div>
+                                                <div class="feature-item">Challenge modes</div>
+                                            </div>
+                                        </div>
+                                        <div class="buttons">
+                                            <a href="#" class="btn btn-primary">Play Now</a>
+                                            <a href="#" class="btn btn-secondary">Learn More</a>
+                                            <span class="available-badge">Classic</span>
+                                        </div>
+                                    </div>
+                                    <div class="screenshots-section">
+                                        <h3 class="screenshots-title">Screenshots</h3>
+                                        <div class="screenshots">
+                                            <div class="carousel-container">
+                                                <div class="carousel-slide active has-image"><img src="images/tower-of-babel/screenshot-1.jpg" alt="Tower of Babel Screenshot 1" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/tower-of-babel/screenshot-2.jpg" alt="Tower of Babel Screenshot 2" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/tower-of-babel/screenshot-3.jpg" alt="Tower of Babel Screenshot 3" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/tower-of-babel/screenshot-4.jpg" alt="Tower of Babel Screenshot 4" class="carousel-image"></div>
+                                            </div>
+                                            <button class="carousel-nav carousel-prev" data-tab="tower-of-babel">‹</button>
+                                            <button class="carousel-nav carousel-next" data-tab="tower-of-babel">›</button>
+                                            <div class="carousel-indicators">
+                                                <button class="carousel-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+                                                <button class="carousel-dot" data-slide="1" aria-label="Go to slide 2"></button>
+                                                <button class="carousel-dot" data-slide="2" aria-label="Go to slide 3"></button>
+                                                <button class="carousel-dot" data-slide="3" aria-label="Go to slide 4"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        </div>
+
+                    <div class="secondary-tab-content" id="blood-omen-content">
+                                    <div class="game-info">
+                                        <h2 class="game-title">Tower of Babel</h2>
+                                        <p class="game-genre">Puzzle Strategy</p>
+                                        <p class="game-description">
+                                            Build, balance, and outwit your way to the top in this ancient puzzle strategy 
+                                            game. Stack blocks, manage resources, and construct the greatest tower the world 
+                                            has ever seen — before it all comes tumbling down.
+                                        </p>
+                                        <div class="key-features">
+                                            <h3>Key Features</h3>
+                                            <div class="features-grid">
+                                                <div class="feature-item">Physics-based building</div>
+                                                <div class="feature-item">Strategic planning</div>
+                                                <div class="feature-item">Ancient setting</div>
+                                                <div class="feature-item">Challenge modes</div>
+                                            </div>
+                                        </div>
+                                        <div class="buttons">
+                                            <a href="#" class="btn btn-primary">🏛️ Play Now</a>
+                                            <a href="#" class="btn btn-secondary">Learn More</a>
+                                            <span class="available-badge">Classic</span>
+                                        </div>
+                                    </div>
+                                    <div class="screenshots-section">
+                                        <h3 class="screenshots-title">Screenshots</h3>
+                                        <div class="screenshots">
+                                            <div class="carousel-container">
+                                                <div class="carousel-slide active has-image"><img src="images/tower-of-babel/screenshot-1.jpg" alt="Tower of Babel Screenshot 1" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/tower-of-babel/screenshot-2.jpg" alt="Tower of Babel Screenshot 2" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/tower-of-babel/screenshot-3.jpg" alt="Tower of Babel Screenshot 3" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/tower-of-babel/screenshot-4.jpg" alt="Tower of Babel Screenshot 4" class="carousel-image"></div>
+                                            </div>
+                                            <button class="carousel-nav carousel-prev" data-tab="tower-of-babel">‹</button>
+                                            <button class="carousel-nav carousel-next" data-tab="tower-of-babel">›</button>
+                                            <div class="carousel-indicators">
+                                                <button class="carousel-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+                                                <button class="carousel-dot" data-slide="1" aria-label="Go to slide 2"></button>
+                                                <button class="carousel-dot" data-slide="2" aria-label="Go to slide 3"></button>
+                                                <button class="carousel-dot" data-slide="3" aria-label="Go to slide 4"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                    <div class="secondary-tab-content" id="terrahawks-content">
+                                    <div class="game-info">
+                                        <h2 class="game-title">Terrahawks</h2>
+                                        <p class="game-genre">Sci-Fi Action</p>
+                                        <p class="game-description">
+                                            Defend Earth from the relentless alien forces of Zelda and her android army. 
+                                            Command the Terrahawks team, pilot the Battlehawk, and protect humanity from 
+                                            invasion in this classic sci-fi action game based on the beloved TV series.
+                                        </p>
+                                        <div class="key-features">
+                                            <h3>Key Features</h3>
+                                            <div class="features-grid">
+                                                <div class="feature-item">Sci-fi combat</div>
+                                                <div class="feature-item">TV series inspired</div>
+                                                <div class="feature-item">Vehicle battles</div>
+                                                <div class="feature-item">Alien enemies</div>
+                                            </div>
+                                        </div>
+                                        <div class="buttons">
+                                            <a href="#" class="btn btn-primary">🚀 Play Now</a>
+                                            <a href="#" class="btn btn-secondary">Learn More</a>
+                                            <span class="available-badge">Classic</span>
+                                        </div>
+                                    </div>
+                                    <div class="screenshots-section">
+                                        <h3 class="screenshots-title">Screenshots</h3>
+                                        <div class="screenshots">
+                                            <div class="carousel-container">
+                                                <div class="carousel-slide active has-image"><img src="images/terrahawks/screenshot-1.jpg" alt="Terrahawks Screenshot 1" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/terrahawks/screenshot-2.jpg" alt="Terrahawks Screenshot 2" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/terrahawks/screenshot-3.jpg" alt="Terrahawks Screenshot 3" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/terrahawks/screenshot-4.jpg" alt="Terrahawks Screenshot 4" class="carousel-image"></div>
+                                            </div>
+                                            <button class="carousel-nav carousel-prev" data-tab="terrahawks">‹</button>
+                                            <button class="carousel-nav carousel-next" data-tab="terrahawks">›</button>
+                                            <div class="carousel-indicators">
+                                                <button class="carousel-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+                                                <button class="carousel-dot" data-slide="1" aria-label="Go to slide 2"></button>
+                                                <button class="carousel-dot" data-slide="2" aria-label="Go to slide 3"></button>
+                                                <button class="carousel-dot" data-slide="3" aria-label="Go to slide 4"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                    <div class="secondary-tab-content" id="battle-chess-content">
+                                    <div class="game-info">
+                                        <h2 class="game-title">Battle Chess</h2>
+                                        <p class="game-genre">Strategy / Classic Chess</p>
+                                        <p class="game-description">
+                                            Chess as you've never seen it before. Watch your pieces come to life and battle 
+                                            each other in spectacular animated combat. Every capture is a unique fight scene 
+                                            as knights clash, wizards cast spells, and kings duel to the death.
+                                        </p>
+                                        <div class="key-features">
+                                            <h3>Key Features</h3>
+                                            <div class="features-grid">
+                                                <div class="feature-item">Animated combat</div>
+                                                <div class="feature-item">Classic chess rules</div>
+                                                <div class="feature-item">Unique piece battles</div>
+                                                <div class="feature-item">All skill levels</div>
+                                            </div>
+                                        </div>
+                                        <div class="buttons">
+                                            <a href="https://drive.google.com/file/d/1k2pf4uWY-RUkmOQdyfW2po_S2Dt9GzPN" class="btn btn-primary">Download</a>
+                                            <a href="#" class="btn btn-secondary">Learn More</a>
+                                            <span class="available-badge">Classic</span>
+                                        </div>
+                                    </div>
+                                    <div class="screenshots-section">
+                                        <h3 class="screenshots-title">Screenshots</h3>
+                                        <div class="screenshots">
+                                            <div class="carousel-container">
+                                                <div class="carousel-slide active has-image"><img src="images/battle-chess/screenshot-1.jpg" alt="Battle Chess Screenshot 1" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/battle-chess/screenshot-2.jpg" alt="Battle Chess Screenshot 2" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/battle-chess/screenshot-3.jpg" alt="Battle Chess Screenshot 3" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/battle-chess/screenshot-4.jpg" alt="Battle Chess Screenshot 4" class="carousel-image"></div>
+                                            </div>
+                                            <button class="carousel-nav carousel-prev" data-tab="battle-chess">‹</button>
+                                            <button class="carousel-nav carousel-next" data-tab="battle-chess">›</button>
+                                            <div class="carousel-indicators">
+                                                <button class="carousel-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+                                                <button class="carousel-dot" data-slide="1" aria-label="Go to slide 2"></button>
+                                                <button class="carousel-dot" data-slide="2" aria-label="Go to slide 3"></button>
+                                                <button class="carousel-dot" data-slide="3" aria-label="Go to slide 4"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                    <div class="secondary-tab-content" id="war-of-the-worlds-content">
+                                    <div class="game-info">
+                                        <h2 class="game-title">War of the Worlds</h2>
+                                        <p class="game-genre">Sci-Fi Survival</p>
+                                        <p class="game-description">
+                                            Martian tripods have landed and humanity is on the brink of extinction. Survive 
+                                            the alien onslaught, scavenge for resources, and find a way to fight back against 
+                                            seemingly invincible war machines in this tense sci-fi survival experience.
+                                        </p>
+                                        <div class="key-features">
+                                            <h3>Key Features</h3>
+                                            <div class="features-grid">
+                                                <div class="feature-item">Alien invasion setting</div>
+                                                <div class="feature-item">Survival mechanics</div>
+                                                <div class="feature-item">Resource scavenging</div>
+                                                <div class="feature-item">Epic scale battles</div>
+                                            </div>
+                                        </div>
+                                        <div class="buttons">
+                                            <a href="#" class="btn btn-primary">👾 Play Now</a>
+                                            <a href="#" class="btn btn-secondary">Learn More</a>
+                                            <span class="available-badge" style="background: #4e342e;">Invasion</span>
+                                        </div>
+                                    </div>
+                                    <div class="screenshots-section">
+                                        <h3 class="screenshots-title">Screenshots</h3>
+                                        <div class="screenshots">
+                                            <div class="carousel-container">
+                                                <div class="carousel-slide active has-image"><img src="images/war-of-the-worlds/screenshot-1.jpg" alt="War of the Worlds Screenshot 1" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/war-of-the-worlds/screenshot-2.jpg" alt="War of the Worlds Screenshot 2" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/war-of-the-worlds/screenshot-3.jpg" alt="War of the Worlds Screenshot 3" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/war-of-the-worlds/screenshot-4.jpg" alt="War of the Worlds Screenshot 4" class="carousel-image"></div>
+                                            </div>
+                                            <button class="carousel-nav carousel-prev" data-tab="war-of-the-worlds">‹</button>
+                                            <button class="carousel-nav carousel-next" data-tab="war-of-the-worlds">›</button>
+                                            <div class="carousel-indicators">
+                                                <button class="carousel-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+                                                <button class="carousel-dot" data-slide="1" aria-label="Go to slide 2"></button>
+                                                <button class="carousel-dot" data-slide="2" aria-label="Go to slide 3"></button>
+                                                <button class="carousel-dot" data-slide="3" aria-label="Go to slide 4"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                    <div class="secondary-tab-content" id="trap-door-content">
+                                    <div class="game-info">
+                                        <h2 class="game-title">Trap Door</h2>
+                                        <p class="game-genre">Puzzle Adventure</p>
+                                        <p class="game-description">
+                                            Based on the classic 1980s children's television series, Trap Door brings the 
+                                            mischievous fun and quirky humour to life. Navigate through the mysterious mansion, 
+                                            solve puzzles, and encounter unforgettable characters in this charming interactive 
+                                            adventure inspired by the beloved show.
+                                        </p>
+                                        <div class="key-features">
+                                            <h3>Key Features</h3>
+                                            <div class="features-grid">
+                                                <div class="feature-item">Classic 80s charm</div>
+                                                <div class="feature-item">Puzzle solving</div>
+                                                <div class="feature-item">Character interactions</div>
+                                                <div class="feature-item">Mansion exploration</div>
+                                            </div>
+                                        </div>
+                                        <div class="buttons">
+                                            <a href="#" class="btn btn-primary">🚪 Play Now</a>
+                                            <a href="#" class="btn btn-secondary">Learn More</a>
+                                            <span class="available-badge" style="background: #ff6f00;">Coming Soon</span>
+                                        </div>
+                                    </div>
+                                    <div class="screenshots-section">
+                                        <h3 class="screenshots-title">Screenshots</h3>
+                                        <div class="screenshots">
+                                            <div class="carousel-container">
+                                                <div class="carousel-slide active has-image"><img src="images/trap-door/screenshot-1.jpg" alt="Trap Door Screenshot 1" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/trap-door/screenshot-2.jpg" alt="Trap Door Screenshot 2" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/trap-door/screenshot-3.jpg" alt="Trap Door Screenshot 3" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/trap-door/screenshot-4.jpg" alt="Trap Door Screenshot 4" class="carousel-image"></div>
+                                            </div>
+                                            <button class="carousel-nav carousel-prev" data-tab="trap-door">‹</button>
+                                            <button class="carousel-nav carousel-next" data-tab="trap-door">›</button>
+                                            <div class="carousel-indicators">
+                                                <button class="carousel-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+                                                <button class="carousel-dot" data-slide="1" aria-label="Go to slide 2"></button>
+                                                <button class="carousel-dot" data-slide="2" aria-label="Go to slide 3"></button>
+                                                <button class="carousel-dot" data-slide="3" aria-label="Go to slide 4"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                    <div class="secondary-tab-content" id="chorlton-and-the-wheelies-content">
+                                    <div class="game-info">
+                                        <h2 class="game-title">Chorlton and the Wheelies</h2>
+                                        <p class="game-genre">Adventure Platformer</p>
+                                        <p class="game-description">
+                                            Based on the iconic 1970s British children's television programme, Chorlton and the 
+                                            Wheelies brings the whimsical world of the Wheelies to life. Guide Chorlton the dragon 
+                                            through colourful adventures, help the Wheelies solve problems, and explore the charming 
+                                            village in this delightful interactive experience inspired by the beloved classic show.
+                                        </p>
+                                        <div class="key-features">
+                                            <h3>Key Features</h3>
+                                            <div class="features-grid">
+                                                <div class="feature-item">1970s nostalgia</div>
+                                                <div class="feature-item">Wheelies characters</div>
+                                                <div class="feature-item">Village exploration</div>
+                                                <div class="feature-item">Whimsical adventures</div>
+                                            </div>
+                                        </div>
+                                        <div class="buttons">
+                                            <a href="#" class="btn btn-primary">🎠 Play Now</a>
+                                            <a href="#" class="btn btn-secondary">Learn More</a>
+                                            <span class="available-badge" style="background: #ff6f00;">Coming Soon</span>
+                                        </div>
+                                    </div>
+                                    <div class="screenshots-section">
+                                        <h3 class="screenshots-title">Screenshots</h3>
+                                        <div class="screenshots">
+                                            <div class="carousel-container">
+                                                <div class="carousel-slide active has-image"><img src="images/chorlton-and-the-wheelies/screenshot-1.jpg" alt="Chorlton and the Wheelies Screenshot 1" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/chorlton-and-the-wheelies/screenshot-2.jpg" alt="Chorlton and the Wheelies Screenshot 2" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/chorlton-and-the-wheelies/screenshot-3.jpg" alt="Chorlton and the Wheelies Screenshot 3" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/chorlton-and-the-wheelies/screenshot-4.jpg" alt="Chorlton and the Wheelies Screenshot 4" class="carousel-image"></div>
+                                            </div>
+                                            <button class="carousel-nav carousel-prev" data-tab="chorlton-and-the-wheelies">‹</button>
+                                            <button class="carousel-nav carousel-next" data-tab="chorlton-and-the-wheelies">›</button>
+                                            <div class="carousel-indicators">
+                                                <button class="carousel-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+                                                <button class="carousel-dot" data-slide="1" aria-label="Go to slide 2"></button>
+                                                <button class="carousel-dot" data-slide="2" aria-label="Go to slide 3"></button>
+                                                <button class="carousel-dot" data-slide="3" aria-label="Go to slide 4"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                    <div class="secondary-tab-content" id="magic-realm-content">
+                                    <div class="game-info">
+                                        <h2 class="game-title">Magic Realm</h2>
+                                        <p class="game-genre">Fantasy Exploration / Adventure</p>
+                                        <p class="game-description">
+                                            Designed by Richard Hamblen and published by Avalon Hill in 1979, Magic Realm is a deep, open-ended fantasy exploration game blending elements of role-playing and complex strategy. Players select unique characters with distinct abilities and secret objectives, then explore a geomorphic hex map, seek treasures, learn spells, and engage with monsters, natives and rival adventurers. The rules encourage long, emergent campaigns with a high degree of replayability; many fans regard it as a cult classic despite a steep learning curve.
+                                        </p>
+                                        <div class="buttons">
+                                            <a href="https://drive.google.com/file/d/1f--UhzRYcvBe-v8EuX-0BRq5Qq1GqoYg" class="btn btn-primary">Download</a>
+                                            <a href="#" class="btn btn-secondary">Community Resources</a>
+                                            <span class="available-badge">Classic</span>
+                                        </div>
+                                    </div>
+                                    <div class="screenshots-section">
+                                        <h3 class="screenshots-title">Screenshots</h3>
+                                        <div class="screenshots">
+                                            <div class="carousel-container">
+                                                <div class="carousel-slide active has-image"><img src="images/magic-realm/screenshot-1.jpg" alt="Magic Realm Screenshot 1" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/magic-realm/screenshot-2.jpg" alt="Magic Realm Screenshot 2" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/magic-realm/screenshot-3.jpg" alt="Magic Realm Screenshot 3" class="carousel-image"></div>
+                                                <div class="carousel-slide has-image"><img src="images/magic-realm/screenshot-4.jpg" alt="Magic Realm Screenshot 4" class="carousel-image"></div>
+                                            </div>
+                                            <button class="carousel-nav carousel-prev" data-tab="magic-realm">‹</button>
+                                            <button class="carousel-nav carousel-next" data-tab="magic-realm">›</button>
+                                            <div class="carousel-indicators">
+                                                <button class="carousel-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+                                                <button class="carousel-dot" data-slide="1" aria-label="Go to slide 2"></button>
+                                                <button class="carousel-dot" data-slide="2" aria-label="Go to slide 3"></button>
+                                                <button class="carousel-dot" data-slide="3" aria-label="Go to slide 4"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                </div>
+            </div>
+
+            <!-- About Orbonics Tab Content (Main Level) -->
+            <div class="tab-content" id="about-content">
+                <div class="game-info">
+                    <h2 class="game-title">About Orbonics</h2>
+                    <p class="game-genre">Game Development Studio</p>
+                    <p class="game-description">
+                        Unofficially founded over thirty years ago by two college students, Orbonics is a
+                        mis-spelling of the the word 'Aubonics' which is a type of advanced martial arts.
+                        Officially founded in 2025, Orbonics is now an independent game development studio
+                        passionate about creating innovative gaming experiences. Our diverse team of developers,
+                        artists, 3D modellers, audio engineers and designers work together to push the
+                        boundaries of interactive entertainment.  At the moment, we are primarily focused on
+                        reviving old classics, faithfully keeping the original feel and gameplay.
+                        If nostalia is your thing, you can rely on Orbonics.
+                    </p>
+                    <div class="buttons">
+                        <a href="#" class="btn btn-primary">👥 Join Our Team</a>
+                        <a href="#" class="btn btn-secondary">Contact Us</a>
+                        <span class="available-badge" style="background: #9c27b0;">Est. 2025</span>
+                    </div>
+                </div>
+                <div class="screenshots-section">
+                    <h3 class="screenshots-title">Our Journey</h3>
+                    <div class="screenshots">
+                        <div class="carousel-container">
+                            <div class="carousel-slide active has-image"><img src="images/about-orbonics/screenshot-1.jpg" alt="Typical work day." class="carousel-image"></div>
+                            <div class="carousel-slide has-image"><img src="images/about-orbonics/screenshot-2.jpg" alt="Typical work day 2." class="carousel-image"></div>
+                            <div class="carousel-slide has-image"><img src="images/about-orbonics/screenshot-3.jpg" alt="Typical work day 3." class="carousel-image"></div>
+                            <div class="carousel-slide has-image"><img src="images/about-orbonics/screenshot-4.jpg" alt="Typical work day 4." class="carousel-image"></div>
+                        </div>
+                        <button class="carousel-nav carousel-prev" data-tab="about">‹</button>
+                        <button class="carousel-nav carousel-next" data-tab="about">›</button>
+                        <div class="carousel-indicators">
+                            <button class="carousel-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+                            <button class="carousel-dot" data-slide="1" aria-label="Go to slide 2"></button>
+                            <button class="carousel-dot" data-slide="2" aria-label="Go to slide 3"></button>
+                            <button class="carousel-dot" data-slide="3" aria-label="Go to slide 4"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+﻿<!-- Footer -->
+        <footer class="footer">
+            <div>
+                <div class="footer-brand">Orbonics</div>
+                <p class="footer-text">
+                    Pushing the boundaries of interactive entertainment with innovative game 
+                    design and cutting-edge technology.
+                </p>
+            </div>
+            <div>
+                <h4 class="footer-title">Connect</h4>
+                <p class="footer-text" style="margin-top: 10px;">
+                    Email: <a href="mailto:support@orbonics.uk" style="color: #ffb74d; text-decoration: none;">support@orbonics.uk</a>
+                </p>
+            </div>
+            <div class="footer-right">
+                <p>Made by Orbonics</p>
+                <p>© 2025 Orbonics. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
+        // Tab data mapping main tab labels to content IDs (4 main tabs only)
+        const tabData = {
+            'Fluffy Kitten':        'fluffy-kitten-content',
+            'Rollerball':           'rollerball-content',
+            'Classic Game Research': 'classic-game-research-content',
+            'About Orbonics':       'about-content'
+        };
+
+        // Secondary tab data for classic games
+        const secondaryTabData = {
+            'The Sentinel':            'sentinel-content',
+            'Atic Atac':               'atic-atac-content',
+            'Battle Squadron':         'battle-squadron-content',
+            'Mercenary':               'mercenary-content',
+            'Tower of Babel':          'tower-of-babel-content',
+            'Blood Omen':              'blood-omen-content',
+            'Terrahawks':              'terrahawks-content',
+            'Battle Chess':            'battle-chess-content',
+            'War of the Worlds':       'war-of-the-worlds-content',
+            'Trap Door':               'trap-door-content',
+            'Chorlton and the Wheelies': 'chorlton-and-the-wheelies-content',
+            'Magic Realm':             'magic-realm-content'
+        };
+
+        // Main tab switching
+        const tabs = document.querySelectorAll('.nav-tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                tabs.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                this.classList.add('active');
+                const contentId = tabData[this.textContent.trim()];
+                if (contentId) {
+                    document.getElementById(contentId).classList.add('active');
+                }
+            });
+        });
+
+        // Secondary tab switching for Classic Game Research
+        const secondaryTabs = document.querySelectorAll('.secondary-nav-tab');
+        const secondaryTabContents = document.querySelectorAll('.secondary-tab-content');
+
+        secondaryTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                secondaryTabs.forEach(t => t.classList.remove('active'));
+                secondaryTabContents.forEach(content => content.classList.remove('active'));
+                this.classList.add('active');
+                const contentId = secondaryTabData[this.textContent.trim()];
+                if (contentId) {
+                    document.getElementById(contentId).classList.add('active');
+                }
+            });
+        });
+
+        // Carousel functionality
+        let currentSlides = {
+            'sentinel':                   0,
+            'atic-atac':                  0,
+            'battle-squadron':            0,
+            'mercenary':                  0,
+            'fluffy-kitten':              0,
+            'tower-of-babel':             0,
+            'blood-omen':                 0,
+            'rollerball':                 0,
+            'terrahawks':                 0,
+            'battle-chess':               0,
+            'war-of-the-worlds':          0,
+            'trap-door':                  0,
+            'chorlton-and-the-wheelies':  0,
+            'magic-realm':                0,
+            'about':                      0
+        };
+
+        function updateCarousel(tabName, slideIndex) {
+            const tabContent = document.getElementById(`${tabName}-content`);
+            if (!tabContent) return;
+            const slides = tabContent.querySelectorAll('.carousel-slide');
+            const dots = tabContent.querySelectorAll('.carousel-dot');
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            if (slides[slideIndex]) slides[slideIndex].classList.add('active');
+            if (dots[slideIndex]) dots[slideIndex].classList.add('active');
+            currentSlides[tabName] = slideIndex;
+        }
+
+        function nextSlide(tabName) {
+            const tabContent = document.getElementById(`${tabName}-content`);
+            if (!tabContent) return;
+            const total = tabContent.querySelectorAll('.carousel-slide').length;
+            const nextIndex = (currentSlides[tabName] + 1) % total;
+            updateCarousel(tabName, nextIndex);
+        }
+
+        function prevSlide(tabName) {
+            const tabContent = document.getElementById(`${tabName}-content`);
+            if (!tabContent) return;
+            const total = tabContent.querySelectorAll('.carousel-slide').length;
+            const prevIndex = (currentSlides[tabName] - 1 + total) % total;
+            updateCarousel(tabName, prevIndex);
+        }
+
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('carousel-next')) {
+                nextSlide(e.target.getAttribute('data-tab'));
+            }
+            if (e.target.classList.contains('carousel-prev')) {
+                prevSlide(e.target.getAttribute('data-tab'));
+            }
+            if (e.target.classList.contains('carousel-dot')) {
+                const slideIndex = parseInt(e.target.getAttribute('data-slide'));
+                const tabContent = e.target.closest('.tab-content');
+                const tabName = tabContent.id.replace('-content', '');
+                updateCarousel(tabName, slideIndex);
+            }
+        });
+
+        // Accessibility & lazy-loading enhancements applied to all carousels
+        // Add loading="lazy" to carousel images so placeholders behave consistently
+        document.querySelectorAll('.carousel-image').forEach(img => {
+            if (!img.getAttribute('loading')) img.setAttribute('loading', 'lazy');
+        });
+
+        // Make nav buttons keyboard-focusable and labelled
+        document.querySelectorAll('.carousel-next').forEach(btn => {
+            if (!btn.getAttribute('aria-label')) btn.setAttribute('aria-label', 'Next slide');
+            if (!btn.hasAttribute('tabindex')) btn.setAttribute('tabindex', '0');
+        });
+        document.querySelectorAll('.carousel-prev').forEach(btn => {
+            if (!btn.getAttribute('aria-label')) btn.setAttribute('aria-label', 'Previous slide');
+            if (!btn.hasAttribute('tabindex')) btn.setAttribute('tabindex', '0');
+        });
+
+        // Make dots focusable and operable via keyboard (Enter / Space)
+        document.querySelectorAll('.carousel-dot').forEach((dot, idx) => {
+            if (!dot.hasAttribute('tabindex')) dot.setAttribute('tabindex', '0');
+            if (!dot.getAttribute('role')) dot.setAttribute('role', 'button');
+            if (!dot.getAttribute('aria-label')) dot.setAttribute('aria-label', `Go to slide ${idx + 1}`);
+            dot.addEventListener('keydown', function(ev) {
+                if (ev.key === 'Enter' || ev.key === ' ') {
+                    ev.preventDefault();
+                    dot.click();
+                }
+            });
+        });
+
+        // Keyboard arrow navigation controls the currently active tab's carousel
+        document.addEventListener('keydown', function(ev) {
+            // First check if there's an active secondary tab (for Classic Games)
+            const activeSecondaryTab = document.querySelector('.secondary-nav-tab.active');
+            if (activeSecondaryTab) {
+                const tabLabel = activeSecondaryTab.textContent.trim();
+                const contentId = secondaryTabData[tabLabel];
+                if (contentId) {
+                    const tabName = contentId.replace('-content', '');
+                    if (ev.key === 'ArrowRight') {
+                        nextSlide(tabName);
+                    } else if (ev.key === 'ArrowLeft') {
+                        prevSlide(tabName);
+                    }
+                }
+                return;
+            }
+            
+            // Otherwise use main tab
+            const activeTab = document.querySelector('.nav-tab.active');
+            if (!activeTab) return;
+            const tabLabel = activeTab.textContent.trim();
+            const contentId = tabData[tabLabel];
+            if (!contentId) return;
+            const tabName = contentId.replace('-content', '');
+            if (ev.key === 'ArrowRight') {
+                nextSlide(tabName);
+            } else if (ev.key === 'ArrowLeft') {
+                prevSlide(tabName);
+            }
+        });
+    </script>
+</body>
+</html>
