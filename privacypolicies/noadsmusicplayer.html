@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Ads Music Player — Privacy Policy | Orbonics</title>
+    <link rel="icon" type="image/x-icon" href="../images/Favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background: linear-gradient(135deg, #4a148c 0%, #7b1fa2 50%, #8e24aa 100%);
+            color: white;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 20px;
+        }
+
+        /* Banner */
+        .banner {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .banner img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .banner-title {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-family: 'Merriweather', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: #ffb74d;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .home-link {
+            color: #ce93d8;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .home-link:hover {
+            color: #ffb74d;
+        }
+
+        /* Policy content */
+        .policy {
+            max-width: 860px;
+            margin: 0 auto 30px;
+        }
+
+        .policy-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            padding: 35px 40px;
+        }
+
+        .policy-title {
+            font-family: 'Merriweather', serif;
+            color: #ffb74d;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .policy-app {
+            color: #e1bee7;
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+        }
+
+        .policy-date {
+            color: #ce93d8;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+        }
+
+        .policy-section {
+            margin-bottom: 28px;
+        }
+
+        .policy-section h2 {
+            color: #ffb74d;
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .policy-section p {
+            color: #e1bee7;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .policy-section ul {
+            list-style: none;
+            margin: 10px 0;
+        }
+
+        .policy-section ul li {
+            color: #e1bee7;
+            line-height: 1.7;
+            margin-bottom: 8px;
+            padding-left: 22px;
+            position: relative;
+        }
+
+        .policy-section ul li::before {
+            content: "–";
+            color: #ffb74d;
+            position: absolute;
+            left: 0;
+        }
+
+        .policy-note {
+            background: rgba(255, 183, 77, 0.1);
+            border-left: 3px solid #ffb74d;
+            border-radius: 4px;
+            padding: 12px 16px;
+            color: #e1bee7;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* Permissions table */
+        .permissions-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 0.95rem;
+        }
+
+        .permissions-table th {
+            color: #ffb74d;
+            text-align: left;
+            padding: 10px 14px;
+            border-bottom: 2px solid rgba(255, 183, 77, 0.5);
+        }
+
+        .permissions-table td {
+            color: #e1bee7;
+            padding: 10px 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            line-height: 1.6;
+            vertical-align: top;
+        }
+
+        .permissions-table td code {
+            color: #ffb74d;
+            font-size: 0.9rem;
+        }
+
+        .policy-contact a {
+            color: #ffb74d;
+            text-decoration: none;
+        }
+
+        .policy-contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 2px;
+            padding-top: 2px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 5px;
+            font-size: 0.9rem;
+            align-items: end;
+        }
+
+        .footer-brand {
+            color: #ffb74d;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-text {
+            color: #ce93d8;
+            line-height: 1.6;
+        }
+
+        .footer-title {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .footer-right {
+            text-align: right;
+        }
+
+        .footer-right p {
+            color: #ce93d8;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .banner-title {
+                font-size: 2rem;
+                top: 10px;
+                right: 15px;
+            }
+
+            .policy-card {
+                padding: 25px 20px;
+            }
+
+            .policy-title {
+                font-size: 1.5rem;
+            }
+
+            .permissions-table {
+                font-size: 0.85rem;
+            }
+
+            .footer {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+                align-items: center;
+            }
+
+            .footer-right {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Banner -->
+        <div class="banner">
+            <img src="../images/Banner1.jpg" alt="Orbonics Gaming Banner">
+            <span class="banner-title">Orbonics</span>
+        </div>
+
+        <!-- Header -->
+        <header class="header">
+            <p><a class="home-link" href="../index.html">‹ Back to Orbonics</a></p>
+        </header>
+
+        <!-- Policy content -->
+        <main class="policy">
+            <div class="policy-card">
+                <h1 class="policy-title">Privacy Policy</h1>
+                <p class="policy-app">No Ads Music Player for Android</p>
+                <p class="policy-date">Last updated: 18 October 2026</p>
+
+                <div class="policy-section">
+                    <h2>The short version</h2>
+                    <p>
+                        No Ads Music Player plays the music files already on your device, in the
+                        folders you choose. It has no accounts, no analytics, no advertising, and
+                        no connection to any online service. It does not collect any personal data
+                        of any kind, and it never sends anything — of any kind — to anyone.
+                    </p>
+                    <p class="policy-note">
+                        The app does not even request the Android internet permission, so it is
+                        technically incapable of sending any data off your device.
+                    </p>
+                </div>
+
+                <div class="policy-section">
+                    <h2>What we do not do</h2>
+                    <p>The app does not:</p>
+                    <ul>
+                        <li>ask you to create an account or sign in,</li>
+                        <li>collect or send usage, analytics or crash data,</li>
+                        <li>display advertising or use your activity for advertising,</li>
+                        <li>read your location, contacts or any other device data,</li>
+                        <li>make any network connection at all.</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h2>What the app accesses on your device</h2>
+                    <p>The only things the app touches are on your own device:</p>
+                    <ul>
+                        <li>
+                            <strong>Music files in folders you pick.</strong> You choose which
+                            folders to open using Android's folder picker, and the app can read
+                            only the folders you explicitly grant it access to. No storage
+                            permissions are requested, and you can revoke access to any folder at
+                            any time in the system settings.
+                        </li>
+                        <li>
+                            <strong>Tags inside your audio files.</strong> The app reads the
+                            metadata embedded in your music files (title, artist, album, artwork)
+                            so it can display them. This happens entirely on your device; your
+                            files are never copied, altered or moved.
+                        </li>
+                        <li>
+                            <strong>The app's own settings.</strong> Your chosen folders,
+                            playback position and a small cache of file tags are stored on your
+                            device only, so the app remembers where you left off. If Android's
+                            app backup is enabled for this app, that information may be included
+                            in your own private backup; it is never sent to us.
+                        </li>
+                    </ul>
+                    <p>Nothing is stored on any server, and nothing is visible to us.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h2>Permissions</h2>
+                    <p>The app uses the following Android permissions, all for local playback:</p>
+                    <table class="permissions-table">
+                        <tr>
+                            <th>Permission</th>
+                            <th>Why it is used</th>
+                        </tr>
+                        <tr>
+                            <td><code>POST_NOTIFICATIONS</code></td>
+                            <td>
+                                Shows the media notification with playback controls on the lock
+                                screen and via Bluetooth (Android 13 and later). If you decline,
+                                the app still plays music, just without that notification.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code>FOREGROUND_SERVICE</code>, <code>FOREGROUND_SERVICE_MEDIA_PLAYBACK</code></td>
+                            <td>Keeps playback running in the background when you leave the app or the screen turns off.</td>
+                        </tr>
+                        <tr>
+                            <td><code>WAKE_LOCK</code></td>
+                            <td>Keeps the device awake at the moment one track hands over to the next, so gapless playback is not interrupted.</td>
+                        </tr>
+                    </table>
+                    <p>No storage, location or other data-collecting permissions are used.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h2>Sharing with third parties</h2>
+                    <p>
+                        The app shares no data with anyone or anything: no developers, no service
+                        providers, no advertisers, no analytics tools, no other apps. There are no
+                        third-party components in the app that communicate with external services.
+                    </p>
+                </div>
+
+                <div class="policy-section">
+                    <h2>Children</h2>
+                    <p>
+                        No Ads Music Player is not directed at children, and it does not knowingly
+                        collect any personal information from anyone, including children.
+                    </p>
+                </div>
+
+                <div class="policy-section">
+                    <h2>Changes to this policy</h2>
+                    <p>
+                        We may update this policy if the app ever changes in a way that affects
+                        privacy. Any significant change will be reflected by a new "last updated"
+                        date on this page and, where appropriate, by a note in the app's release
+                        notes on Google Play.
+                    </p>
+                </div>
+
+                <div class="policy-section policy-contact">
+                    <h2>Contact</h2>
+                    <p>
+                        If you have any questions about this privacy policy or how the app
+                        handles your data, contact us at
+                        <a href="mailto:support@orbonics.uk">support@orbonics.uk</a>.
+                    </p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div>
+                <div class="footer-brand">Orbonics</div>
+                <p class="footer-text">
+                    Pushing the boundaries of interactive entertainment with innovative game
+                    design and cutting-edge technology.
+                </p>
+            </div>
+            <div>
+                <h4 class="footer-title">Connect</h4>
+                <p class="footer-text" style="margin-top: 10px;">
+                    Email: <a href="mailto:support@orbonics.uk" style="color: #ffb74d; text-decoration: none;">support@orbonics.uk</a>
+                </p>
+            </div>
+            <div class="footer-right">
+                <p>Made by Orbonics</p>
+                <p>© 2025 Orbonics. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
