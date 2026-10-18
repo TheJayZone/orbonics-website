@@ -535,6 +535,7 @@
             <button class="nav-tab active">Fluffy Kitten</button>
             <button class="nav-tab">Rollerball</button>
             <button class="nav-tab">Classic Game Research</button>
+            <button class="nav-tab">Music Player</button>
             <button class="nav-tab">About Orbonics</button>
         </nav>
         <!-- Main Content -->
@@ -1117,6 +1118,51 @@
                 </div>
             </div>
 
+            <!-- Music Player Tab Content (Main Level) -->
+            <div class="tab-content" id="music-player-content">
+                <div class="game-info">
+                    <h2 class="game-title">No Ads Music Player</h2>
+                    <p class="game-genre">Music Player</p>
+                    <p class="game-description">
+                        No Ads Music Player is a no-nonsense Android music player that plays the files
+                        already on your device. No cloud, no accounts, no streaming and no ads — the app
+                        doesn't even hold the Android internet permission. Pick a folder with the built-in
+                        folder picker (no storage permissions are requested) and play it straight through
+                        with gapless playback, real track tags, album art, and full lock-screen and
+                        Bluetooth controls.
+                    </p>
+                    <div class="key-features">
+                        <h3>Key Features</h3>
+                        <div class="features-grid">
+                            <div class="feature-item">Local files only</div>
+                            <div class="feature-item">No ads, ever</div>
+                            <div class="feature-item">Gapless playback</div>
+                            <div class="feature-item">No storage permissions</div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="screenshots-section">
+                    <h3 class="screenshots-title">Screenshots</h3>
+                    <div class="screenshots">
+                        <div class="carousel-container">
+                            <div class="carousel-slide active has-image"><img src="images/music-player/screenshot-1.jpg" alt="No Ads Music Player Screenshot 1" class="carousel-image"></div>
+                            <div class="carousel-slide has-image"><img src="images/music-player/screenshot-2.jpg" alt="No Ads Music Player Screenshot 2" class="carousel-image"></div>
+                            <div class="carousel-slide has-image"><img src="images/music-player/screenshot-3.jpg" alt="No Ads Music Player Screenshot 3" class="carousel-image"></div>
+                            <div class="carousel-slide has-image"><img src="images/music-player/screenshot-4.jpg" alt="No Ads Music Player Screenshot 4" class="carousel-image"></div>
+                        </div>
+                        <button class="carousel-nav carousel-prev" data-tab="music-player">‹</button>
+                        <button class="carousel-nav carousel-next" data-tab="music-player">›</button>
+                        <div class="carousel-indicators">
+                            <button class="carousel-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+                            <button class="carousel-dot" data-slide="1" aria-label="Go to slide 2"></button>
+                            <button class="carousel-dot" data-slide="2" aria-label="Go to slide 3"></button>
+                            <button class="carousel-dot" data-slide="3" aria-label="Go to slide 4"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- About Orbonics Tab Content (Main Level) -->
             <div class="tab-content" id="about-content">
                 <div class="game-info">
@@ -1186,6 +1232,7 @@
             'Fluffy Kitten':        'fluffy-kitten-content',
             'Rollerball':           'rollerball-content',
             'Classic Game Research': 'classic-game-research-content',
+            'Music Player':         'music-player-content',
             'About Orbonics':       'about-content'
         };
 
@@ -1252,8 +1299,9 @@
             'war-of-the-worlds':          0,
             'trap-door':                  0,
             'chorlton-and-the-wheelies':  0,
-            'magic-realm':                0,
-            'about':                      0
+'magic-realm':                  0,
+                'music-player':                 0,
+                'about':                      0
         };
 
         function updateCarousel(tabName, slideIndex) {
