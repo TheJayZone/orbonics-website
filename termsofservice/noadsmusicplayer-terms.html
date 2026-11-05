@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Ads Music Player — Terms of Use | Orbonics</title>
+    <link rel="icon" type="image/x-icon" href="../images/Favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            background: linear-gradient(135deg, #4a148c 0%, #7b1fa2 50%, #8e24aa 100%);
+            color: white;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 20px;
+        }
+
+        /* Banner */
+        .banner {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .banner img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .banner-title {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-family: 'Merriweather', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: #ffb74d;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .home-link {
+            color: #ce93d8;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .home-link:hover {
+            color: #ffb74d;
+        }
+
+        /* Policy content */
+        .policy {
+            max-width: 860px;
+            margin: 0 auto 30px;
+        }
+
+        .policy-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            padding: 35px 40px;
+        }
+
+        .policy-title {
+            font-family: 'Merriweather', serif;
+            color: #ffb74d;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .policy-app {
+            color: #e1bee7;
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+        }
+
+        .policy-date {
+            color: #ce93d8;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+        }
+
+        .policy-section {
+            margin-bottom: 28px;
+        }
+
+        .policy-section h2 {
+            color: #ffb74d;
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .policy-section p {
+            color: #e1bee7;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .policy-section ul {
+            list-style: none;
+            margin: 10px 0;
+        }
+
+        .policy-section ul li {
+            color: #e1bee7;
+            line-height: 1.7;
+            margin-bottom: 8px;
+            padding-left: 22px;
+            position: relative;
+        }
+
+        .policy-section ul li::before {
+            content: "–";
+            color: #ffb74d;
+            position: absolute;
+            left: 0;
+        }
+
+        .policy-note {
+            background: rgba(255, 183, 77, 0.1);
+            border-left: 3px solid #ffb74d;
+            border-radius: 4px;
+            padding: 12px 16px;
+            color: #e1bee7;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* Permissions table */
+        .permissions-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 0.95rem;
+        }
+
+        .permissions-table th {
+            color: #ffb74d;
+            text-align: left;
+            padding: 10px 14px;
+            border-bottom: 2px solid rgba(255, 183, 77, 0.5);
+        }
+
+        .permissions-table td {
+            color: #e1bee7;
+            padding: 10px 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            line-height: 1.6;
+            vertical-align: top;
+        }
+
+        .permissions-table td code {
+            color: #ffb74d;
+            font-size: 0.9rem;
+        }
+
+        .policy-contact a {
+            color: #ffb74d;
+            text-decoration: none;
+        }
+
+        .policy-contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 2px;
+            padding-top: 2px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 5px;
+            font-size: 0.9rem;
+            align-items: end;
+        }
+
+        .footer-brand {
+            color: #ffb74d;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-text {
+            color: #ce93d8;
+            line-height: 1.6;
+        }
+
+        .footer-title {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .footer-right {
+            text-align: right;
+        }
+
+        .footer-right p {
+            color: #ce93d8;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .banner-title {
+                font-size: 2rem;
+                top: 10px;
+                right: 15px;
+            }
+
+            .policy-card {
+                padding: 25px 20px;
+            }
+
+            .policy-title {
+                font-size: 1.5rem;
+            }
+
+            .permissions-table {
+                font-size: 0.85rem;
+            }
+
+            .footer {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+                align-items: center;
+            }
+
+            .footer-right {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Banner -->
+        <div class="banner">
+            <img src="../images/Banner1.jpg" alt="Orbonics Gaming Banner">
+            <span class="banner-title">Orbonics</span>
+        </div>
+
+        <!-- Header -->
+        <header class="header">
+            <p><a class="home-link" href="../index.html">‹ Back to Orbonics</a></p>
+        </header>
+
+        <!-- Terms of Use content -->
+        <main class="policy">
+            <div class="policy-card">
+                <h1 class="policy-title">Terms of Use</h1>
+                <p class="policy-app">No Ads Music Player for Android</p>
+                <p class="policy-date">Effective date: 5 November 2026</p>
+
+<div class="policy-section">
+<h2>1. Introduction</h2>
+
+<p>These Terms of Use govern your use of Music Player, an Android application developed and published by Orbonics ("we", "us" or "our").</p>
+
+<p>By downloading, installing or using Music Player ("the App"), you agree to these Terms. If you do not agree with them, you should not install or use the App.</p>
+
+</div>
+
+<div class="policy-section">
+<h2>2. About the App</h2>
+
+<p>Music Player is an Android application designed to play audio files stored on your device.</p>
+
+<p>Its features include:</p>
+
+<ul>
+<li>Selecting one or more music folders using the Android system folder picker.</li>
+<li>Browsing selected folders and their subfolders.</li>
+<li>Playing supported audio files, including MP3, M4A, AAC, OGG, OGA, Opus, FLAC, WAV and WebM.</li>
+<li>Continuous and gapless playback where supported by the audio format and device.</li>
+<li>Reading available music metadata, including track titles, artists and album information.</li>
+<li>Displaying embedded or locally stored album artwork.</li>
+<li>Background playback and Android media notification controls.</li>
+<li>Playback controls through compatible Bluetooth devices, lock screens and voice assistants.</li>
+<li>Organising and reordering selected music folders.</li>
+</ul>
+
+<p>The App is intended for personal music playback. It does not provide, sell or distribute music.</p>
+
+</div>
+
+<div class="policy-section">
+<h2>3. Licence to Use the App</h2>
+
+<p>Subject to these Terms, Orbonics grants you a personal, limited, non-exclusive, non-transferable and revocable licence to install and use the App on Android devices that you own or are authorised to use.</p>
+
+<p>You may not:</p>
+
+<ul>
+<li>Copy, modify, adapt or redistribute the App, except where permitted by applicable law.</li>
+<li>Reverse engineer, decompile or disassemble the App, except where applicable law expressly permits this.</li>
+<li>Remove or alter copyright notices or other proprietary notices.</li>
+<li>Use the App or any part of it for unlawful purposes.</li>
+<li>Attempt to interfere with, damage or compromise the App or its operation.</li>
+</ul>
+
+<p>All rights not expressly granted under these Terms are reserved by Orbonics.</p>
+
+</div>
+
+<div class="policy-section">
+<h2>4. Music Files and Copyright</h2>
+
+<p>The App plays music files that you select from storage accessible to your Android device.</p>
+
+<p>You are responsible for ensuring that you have the necessary rights and permissions to access, play and use those files.</p>
+
+<p>Music Player does not grant you any copyright, licence or ownership rights over music, recordings, artwork or other media accessed through the App.</p>
+
+<p>You must not use the App to infringe copyright or other intellectual property rights.</p>
+
+<p>Orbonics is not responsible for the content of music files stored on your device or for determining whether you have permission to use them.</p>
+
+</div>
+
+<div class="policy-section">
+<h2>5. Storage Access and Permissions</h2>
+
+<p>Music Player uses the Android Storage Access Framework to allow you to select music folders.</p>
+
+<p>The App accesses folders that you explicitly select and grant permission to access. These selections may be retained between app sessions so that you do not need to select the same folders every time you use the App.</p>
+
+<p>The App reads audio files and associated metadata and artwork as required for browsing and playback.</p>
+
+<p>You can manage or revoke folder access through Android's system settings.</p>
+
+<p>Certain Android features, including media notifications, may require additional system permissions. Refusing an optional permission may limit the availability of that feature but does not necessarily prevent music playback.</p>
+
+</div>
+
+<div class="policy-section">
+<h2>6. Compatibility and Limitations</h2>
+
+<p>Although we aim to provide reliable playback, the App's operation may depend on your Android version, device hardware, available storage, audio codecs and other system components.</p>
+
+<p>In particular:</p>
+
+<ul>
+<li>Not every audio file will necessarily be playable on every device.</li>
+<li>DRM-protected audio files are not supported.</li>
+<li>Metadata and album artwork are read on a best-effort basis.</li>
+<li>Some playback features may depend on Android system capabilities.</li>
+<li>Background playback and notification behaviour may be affected by device manufacturers' battery management or operating system restrictions.</li>
+</ul>
+
+<p>We cannot guarantee that every supported audio format will work identically on every Android device.</p>
+
+</div>
+
+<div class="policy-section">
+<h2>7. Intellectual Property</h2>
+
+<p>The Music Player application, including its original software, design, user interface, branding and associated materials, is owned by or licensed to Orbonics and is protected by applicable intellectual property laws.</p>
+
+<p>You retain ownership of your own music files and other content.</p>
+
+<p>Nothing in these Terms transfers ownership of either party's intellectual property to the other.</p>
+
+<p>The App may incorporate third-party software components, which remain subject to their respective licences and terms.</p>
+
+</div>
+
+<div class="policy-section">
+<h2>8. Updates and Availability</h2>
+
+<p>We may provide updates, improvements, bug fixes or changes to the App from time to time.</p>
+
+<p>We may also modify, suspend or discontinue some or all of the App's features where reasonably necessary.</p>
+
+<p>We do not guarantee that the App will remain available indefinitely or that every feature will be supported on every future Android version.</p>
+
+<p>Where appropriate, updates may be distributed through Google Play or other authorised distribution channels.</p>
+
+</div>
+
+<div class="policy-section">
+<h2>9. Disclaimer of Warranties</h2>
+
+<p>We aim to provide a reliable and useful music playback application. However, the App is provided on an "as available" basis.</p>
+
+<p>To the extent permitted by applicable law, we do not guarantee that:</p>
+
+<ul>
+<li>The App will operate without interruption or errors.</li>
+<li>Every audio file will be compatible.</li>
+<li>The App will work on every Android device.</li>
+<li>Playback will always be gapless or uninterrupted.</li>
+</ul>
+
+<p>Nothing in these Terms affects any statutory rights or consumer protections that cannot lawfully be excluded or restricted.</p>
+
+</div>
+
+<div class="policy-section">
+<h2>10. Limitation of Liability</h2>
+
+<p>To the extent permitted by applicable law, Orbonics shall not be liable for indirect or consequential losses arising from the use of, or inability to use, the App.</p>
+
+<p>We are not responsible for loss or corruption of music files or other data stored on your device. You should maintain appropriate backups of your personal files.</p>
+
+<p>Nothing in these Terms excludes or limits liability where such exclusion or limitation would be unlawful, including liability for death or personal injury caused by negligence, fraud or fraudulent misrepresentation, or your statutory consumer rights.</p>
+
+</div>
+
+<div class="policy-section">
+<h2>11. Your Responsibility</h2>
+
+<p>You agree to use the App lawfully and in accordance with these Terms and applicable legislation.</p>
+
+<p>You are responsible for:</p>
+
+<ul>
+<li>The music files and folders you choose to access.</li>
+<li>Ensuring that your use of those files does not infringe third-party rights.</li>
+<li>Maintaining appropriate backups of your personal data.</li>
+<li>Keeping your Android device and operating system appropriately maintained.</li>
+</ul>
+
+</div>
+
+<div class="policy-section">
+<h2>12. Changes to These Terms</h2>
+
+<p>We may update these Terms from time to time to reflect changes to the App, applicable laws or our business practices.</p>
+
+<p>The latest version will be made available on the Orbonics website, together with its effective date.</p>
+
+<p>Your continued use of the App after updated Terms take effect constitutes acceptance of those changes, to the extent permitted by applicable law.</p>
+
+</div>
+
+<div class="policy-section">
+<h2>13. Governing Law</h2>
+
+<p>These Terms are governed by the laws of England and Wales.</p>
+
+<p>If you are a consumer resident in another part of the United Kingdom or another country, you may also benefit from mandatory consumer protection laws applicable in your place of residence.</p>
+
+<p>Nothing in these Terms removes any rights you may have under applicable consumer protection legislation.</p>
+
+</div>
+
+<div class="policy-section">
+<h2>14. Contact</h2>
+
+<p>If you have any questions about these Terms or the Music Player application, please contact:</p>
+
+<p><strong>Orbonics</strong></p>
+
+<p>Website: <a href="https://www.orbonics.uk">https://www.orbonics.uk</a></p>
+
+<p>Email: <a href="mailto:support@orbonics.uk">support@orbonics.uk</a></p>
+
+</div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div>
+                <div class="footer-brand">Orbonics</div>
+                <p class="footer-text">
+                    Pushing the boundaries of interactive entertainment with innovative game
+                    design and cutting-edge technology.
+                </p>
+            </div>
+            <div>
+                <h4 class="footer-title">Connect</h4>
+                <p class="footer-text" style="margin-top: 10px;">
+                    Email: <a href="mailto:support@orbonics.uk" style="color: #ffb74d; text-decoration: none;">support@orbonics.uk</a>
+                </p>
+            </div>
+            <div class="footer-right">
+                <p>Made by Orbonics</p>
+                <p>© 2025 Orbonics. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
